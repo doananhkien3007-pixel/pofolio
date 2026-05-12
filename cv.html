@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kien Doan - CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            background: #f1f5f9;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 2rem auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 32%;
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 40px 30px;
+        }
+
+        .main-content {
+            width: 68%;
+            padding: 40px;
+        }
+
+        /* HEADER & SIDEBAR INFO */
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid #334155;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .title {
+            font-size: 14px;
+            text-align: center;
+            color: #38bdf8;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .section-title-side {
+            font-size: 15px;
+            font-weight: 600;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: #e2e8f0;
+        }
+
+        .contact-list li strong {
+            display: inline-block;
+            width: 60px;
+            color: #94a3b8;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #e2e8f0;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: #334155;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: #38bdf8;
+        }
+
+        .tools-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-tag {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* MAIN CONTENT */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .about-text {
+            font-size: 14px;
+            color: #475569;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 25px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .exp-platform {
+            font-size: 13px;
+            color: #2563eb;
+            font-weight: 600;
+            background: #eff6ff;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .exp-desc {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        .kpi-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .kpi-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            flex: 1;
+        }
+
+        .kpi-box strong {
+            display: block;
+            font-size: 14px;
+            color: #0f172a;
+            margin-top: 2px;
+        }
+
+        .kpi-box.success strong { color: #10b981; }
+        .kpi-box.primary strong { color: #3b82f6; }
+        .kpi-box.danger strong { color: #ef4444; }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .a4-page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <img src="assets/img/avatar.png" alt="Kien Doan" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Kien+Doan&size=200&background=cbd5e1'">
+            
+            <h1 class="name">KIEN DOAN</h1>
+            <p class="title">Digital Marketing Specialist</p>
+
+            <h2 class="section-title-side">Liên Hệ</h2>
+            <ul class="contact-list">
+                <li><strong>Email</strong> doananhkien5@yourmail.com</li>
+                <li><strong>Vị trí</strong> TP. Hồ Chí Minh</li>
+                <li><strong>Website</strong> kiendoan-portfolio.com</li>
+            </ul>
+
+            <h2 class="section-title-side">Chuyên Môn</h2>
+            <ul class="skill-list">
+                <li class="skill-item">
+                    <div class="skill-name">Quảng cáo Facebook (Meta Ads)</div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+                </li>
+                <li class="skill-item">
+                    <div class="skill-name">Quảng cáo TikTok (TikTok Ads)</div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                </li>
+                <li class="skill-item">
+                    <div class="skill-name">Performance & Tracking (Pixel, CAPI)</div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                </li>
+                <li class="skill-item">
+                    <div class="skill-name">Lên kế hoạch & Chiến lược Nội dung</div>
+                    <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                </li>
+            </ul>
+
+            <h2 class="section-title-side">Công Cụ</h2>
+            <div class="tools-tags">
+                <span class="tool-tag">Canva</span>
+                <span class="tool-tag">CapCut</span>
+                <span class="tool-tag">LarkSuite</span>
+                <span class="tool-tag">ChatGPT</span>
+                <span class="tool-tag">Gemini</span>
+                <span class="tool-tag">Google Analytics</span>
+                <span class="tool-tag">Pancake</span>
+                <span class="tool-tag">KiotViet</span>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <h2 class="section-title">Giới Thiệu Bản Thân</h2>
+            <p class="about-text">
+                Từ một người chạy ads đơn thuần, tôi phát triển thành một chuyên viên Growth Marketing tập trung vào ROI và dữ liệu. Thay vì chỉ tiêu tiền để có traffic, tôi xây dựng hệ thống funnel, tối ưu hóa CVR và đọc hiểu luồng dữ liệu để scale ngân sách mang lại lợi nhuận thực tế. Tôi luôn theo đuổi phương pháp tiếp cận dựa trên bằng chứng (data-driven) và thử nghiệm A/B liên tục.
+            </p>
+
+            <h2 class="section-title" style="margin-top: 35px;">Dự Án Nổi Bật (Case Studies)</h2>
+
+            <!-- Project 1 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">Tối ưu Quảng cáo Ngành Thời Trang</div>
+                    <div class="exp-platform">TikTok Ads GMV Max</div>
+                </div>
+                <p class="exp-desc">
+                    Mục tiêu: Đẩy mạnh số lượng đơn hàng bán ra mỗi ngày (Scale volume) và ép chi phí trên mỗi đơn hàng (CPO) ở mức thấp nhất cho TikTok Shop.
+                </p>
+                <ul style="font-size: 13px; color: #475569; margin-left: 20px; margin-bottom: 10px;">
+                    <li>Áp dụng chiến dịch Product GMV Max kết hợp A/B testing quy mô lớn.</li>
+                    <li>Scale ngân sách cho winning product, duy trì ROI 15.97.</li>
+                </ul>
+                <div class="kpi-row">
+                    <div class="kpi-box success">Doanh thu <strong>1.62 Tỷ VNĐ</strong></div>
+                    <div class="kpi-box primary">Số đơn <strong>5.746 Đơn</strong></div>
+                    <div class="kpi-box danger">CPO <strong>17.7k VNĐ</strong></div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">Chiến dịch Nhắn tin Ngành Giày Cao Cấp</div>
+                    <div class="exp-platform">Meta Ads</div>
+                </div>
+                <p class="exp-desc">
+                    Tối đa hóa lượng tin nhắn (Inbox) để chuyển đổi Sales trong phân khúc cạnh tranh, duy trì chi phí rẻ nhất khi vít ngân sách 132 triệu.
+                </p>
+                <div class="kpi-row">
+                    <div class="kpi-box primary">Tổng ngân sách <strong>132 Triệu</strong></div>
+                    <div class="kpi-box success">Lượt Inbox <strong>7.161 Tin</strong></div>
+                    <div class="kpi-box danger">Chi phí/Tin <strong>18.5k VNĐ</strong></div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">Tối ưu Lead B2B Ngành Điện Mặt Trời</div>
+                    <div class="exp-platform">Meta Ads</div>
+                </div>
+                <p class="exp-desc">
+                    Cấu trúc lại phễu thu thập khách hàng cho sản phẩm giá trị cao. Thiết kế hệ thống tự động phân loại Lead qua Ladipage và Google Sheets.
+                </p>
+                <div class="kpi-row">
+                    <div class="kpi-box success">Lượt Leads <strong>Hơn 600</strong></div>
+                    <div class="kpi-box danger">CPL Giảm <strong>120k &rarr; 45k</strong></div>
+                    <div class="kpi-box primary">Tỷ lệ Chốt <strong>12%</strong></div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="exp-item" style="margin-bottom: 0;">
+                <div class="exp-header">
+                    <div class="exp-title">Phễu Bán Lẻ Phụ Tùng Xe Máy</div>
+                    <div class="exp-platform">Meta Ads</div>
+                </div>
+                <p class="exp-desc">
+                    Triển khai chiến dịch chuyển đổi tại điểm bán kết hợp online. Tối ưu nội dung hình ảnh thực tế, đánh mạnh vào nhu cầu thay thế, bảo dưỡng.
+                </p>
+                <div class="kpi-row">
+                    <div class="kpi-box danger">CPL <strong>35k VNĐ</strong></div>
+                    <div class="kpi-box success">Tỷ lệ chốt đơn <strong>> 20%</strong></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

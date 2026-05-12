@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dự Án Tối Ưu Quảng Cáo Facebook | Hồ Sơ KienDoan</title>
+  <meta name="description"
+    content="Dự án tối ưu quảng cáo Facebook theo cấu trúc tổng quan, vấn đề, chiến lược, triển khai, tối ưu và kết quả.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(16, 185, 129, 0.08), transparent 33%),
+        radial-gradient(circle at 90% 90%, rgba(14, 165, 233, 0.08), transparent 36%),
+        #f8fafc;
+    }
+
+    .read-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #10b981, #14b8a6);
+      z-index: 1200;
+      box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
+      transition: width 120ms linear;
+    }
+
+    .case-floating-nav {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+      padding: .85rem;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(2, 44, 34, 0.08);
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .case-content {
+      min-width: 0;
+    }
+
+    .case-nav-title {
+      margin: 0 0 .55rem;
+      font-size: .75rem;
+      font-weight: 850;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .case-nav-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .28rem;
+    }
+
+    .case-nav-link {
+      display: flex;
+      align-items: center;
+      gap: .42rem;
+      font-size: .79rem;
+      text-decoration: none;
+      color: var(--gray-600);
+      padding: .38rem .5rem;
+      border-radius: 10px;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .case-nav-link i {
+      font-size: .75rem;
+      color: var(--primary-600);
+    }
+
+    .case-nav-link:hover {
+      color: var(--gray-900);
+      background: rgba(16, 185, 129, 0.08);
+      transform: translateX(2px);
+    }
+
+    .case-nav-link.is-active {
+      color: var(--primary-800);
+      background: rgba(16, 185, 129, 0.12);
+      font-weight: 700;
+    }
+
+    .visual-placeholder {
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(255, 255, 255, 0.96));
+      min-height: 118px;
+      padding: .85rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--gray-600);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .visual-placeholder small {
+      display: block;
+      margin-top: .35rem;
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+
+    .mini-chart {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.88), #fff);
+      padding: .75rem;
+    }
+
+    .mini-chart-head {
+      font-size: .72rem;
+      font-weight: 800;
+      color: var(--gray-500);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .65rem;
+    }
+
+    .mini-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: .35rem;
+      min-height: 74px;
+    }
+
+    .mini-bars span {
+      flex: 1;
+      border-radius: 999px 999px 6px 6px;
+      background: linear-gradient(180deg, rgba(16, 185, 129, .82), rgba(16, 185, 129, .42));
+      border: 1px solid rgba(16, 185, 129, .24);
+    }
+
+    .mini-bars span:nth-child(1) {
+      height: 32px;
+    }
+
+    .mini-bars span:nth-child(2) {
+      height: 56px;
+    }
+
+    .mini-bars span:nth-child(3) {
+      height: 74px;
+    }
+
+    .mini-bars span:nth-child(4) {
+      height: 46px;
+    }
+
+    .mini-bars span:nth-child(5) {
+      height: 26px;
+    }
+
+    .mini-legend {
+      display: flex;
+      justify-content: space-between;
+      gap: .45rem;
+      margin-top: .6rem;
+      font-size: .68rem;
+      color: var(--gray-500);
+      font-weight: 700;
+    }
+
+    .mini-heat {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .3rem;
+    }
+
+    .mini-heat span {
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, .2);
+      background: #ecfeff;
+    }
+
+    .mini-heat span:nth-child(2),
+    .mini-heat span:nth-child(7),
+    .mini-heat span:nth-child(11) {
+      background: #bbf7d0;
+    }
+
+    .mini-heat span:nth-child(3),
+    .mini-heat span:nth-child(8),
+    .mini-heat span:nth-child(13) {
+      background: #86efac;
+    }
+
+    .mini-heat span:nth-child(4),
+    .mini-heat span:nth-child(14) {
+      background: #fecaca;
+    }
+
+    .mini-heat span:nth-child(5),
+    .mini-heat span:nth-child(10),
+    .mini-heat span:nth-child(15) {
+      background: #fee2e2;
+    }
+
+    .decision-card {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 16px;
+      padding: 1rem .95rem;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 8px 20px rgba(2, 44, 34, 0.06);
+      height: 100%;
+    }
+
+    .decision-card h6 {
+      margin: 0 0 .35rem;
+      font-weight: 850;
+      letter-spacing: -.01em;
+    }
+
+    .decision-card p {
+      margin: 0;
+      color: var(--gray-600);
+      font-size: .86rem;
+      line-height: 1.55;
+    }
+
+    .decision-card.scale {
+      border-color: rgba(5, 150, 105, 0.28);
+      background: rgba(236, 253, 245, 0.78);
+    }
+
+    .decision-card.optimize {
+      border-color: rgba(37, 99, 235, 0.26);
+      background: rgba(239, 246, 255, 0.76);
+    }
+
+    .decision-card.hold {
+      border-color: rgba(245, 158, 11, 0.28);
+      background: rgba(255, 251, 235, 0.82);
+    }
+
+    .decision-card.kill {
+      border-color: rgba(239, 68, 68, 0.26);
+      background: rgba(254, 242, 242, 0.8);
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .ba-card {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 10px 24px rgba(2, 44, 34, 0.06);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .ba-card.before {
+      border-color: rgba(239, 68, 68, 0.22);
+    }
+
+    .ba-card.after {
+      border-color: rgba(16, 185, 129, 0.28);
+    }
+
+    .ba-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .95rem 1.05rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .ba-card.before .ba-card-head {
+      background: rgba(254, 242, 242, 0.78);
+    }
+
+    .ba-card.after .ba-card-head {
+      background: rgba(236, 253, 245, 0.82);
+    }
+
+    .ba-title {
+      margin: 0;
+      font-weight: 900;
+      color: var(--gray-900);
+      letter-spacing: -.02em;
+    }
+
+    .ba-tag {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      padding: .25rem .55rem;
+      font-size: .68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .before .ba-tag {
+      color: #991b1b;
+      background: rgba(254, 226, 226, 0.95);
+    }
+
+    .after .ba-tag {
+      color: #047857;
+      background: rgba(209, 250, 229, 0.95);
+    }
+
+    .ba-card-body {
+      padding: 1rem 1.05rem;
+      color: var(--gray-600);
+    }
+
+    .ba-list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .ba-list li+li {
+      margin-top: .52rem;
+    }
+
+    .ba-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    .ba-metric {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), #fff);
+      padding: .85rem;
+      min-height: 104px;
+    }
+
+    .ba-metric-label {
+      margin: 0 0 .4rem;
+      font-size: .7rem;
+      color: var(--gray-500);
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .ba-metric-change {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .5rem;
+      margin-bottom: .28rem;
+    }
+
+    .ba-metric-old {
+      color: var(--gray-400);
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: line-through;
+    }
+
+    .ba-metric-new {
+      color: var(--primary-800);
+      font-size: 1.15rem;
+      font-weight: 950;
+      letter-spacing: -.03em;
+    }
+
+    .ba-metric-note {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: .78rem;
+      line-height: 1.45;
+    }
+
+    .action-table {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr .8fr;
+      gap: .75rem;
+      padding: .8rem .95rem;
+      align-items: start;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .action-row+.action-row {
+      border-top: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .action-row.head {
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--gray-500);
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .action-row strong {
+      color: var(--gray-900);
+      font-weight: 850;
+    }
+
+    .project-facts {
+      display: grid;
+      gap: .7rem;
+    }
+
+    .project-fact {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: .75rem;
+      padding: .78rem .85rem;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 14px;
+      background: rgba(248, 250, 252, 0.72);
+    }
+
+    .project-fact span {
+      color: var(--gray-500);
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .project-fact strong {
+      color: var(--gray-900);
+      font-size: .94rem;
+      line-height: 1.45;
+    }
+
+    .ba-visual {
+      margin-top: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .ba-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .ba-visual figcaption {
+      padding: .75rem .85rem;
+      color: var(--gray-600);
+      background: rgba(248, 250, 252, 0.8);
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    .strategy-summary {
+      border: 1px solid rgba(16, 185, 129, 0.24);
+      border-radius: 18px;
+      padding: clamp(1rem, 2.5vw, 1.35rem);
+      background:
+        linear-gradient(135deg, rgba(236, 253, 245, 0.9), rgba(239, 246, 255, 0.82)),
+        #fff;
+    }
+
+    .strategy-summary p {
+      margin: 0;
+      color: var(--gray-700);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .85rem;
+    }
+
+    .result-stat {
+      min-height: 132px;
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      border-radius: 16px;
+      padding: .95rem;
+      background: linear-gradient(180deg, rgba(236, 253, 245, 0.78), #fff);
+    }
+
+    .result-stat .stat-label {
+      margin: 0 0 .45rem;
+      color: var(--gray-500);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .result-stat .stat-value {
+      margin: 0;
+      color: var(--primary-800);
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      font-weight: 950;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+    }
+
+    .result-stat .stat-note {
+      margin: .45rem 0 0;
+      color: var(--gray-600);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    .cta-strip {
+      border: 1px solid rgba(16, 185, 129, 0.24);
+      border-radius: 20px;
+      background: linear-gradient(120deg, rgba(2, 44, 34, 0.96), rgba(6, 95, 70, 0.94));
+      color: #fff;
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      box-shadow: 0 18px 36px rgba(2, 44, 34, 0.2);
+    }
+
+    .cta-strip h4 {
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: .45rem;
+    }
+
+    .cta-strip p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1rem;
+    }
+
+    .cta-actions .btn {
+      border-radius: 999px;
+      font-weight: 750;
+      padding: .48rem .88rem;
+    }
+
+    .case-hero {
+      background: linear-gradient(160deg, #022c22 0%, #064e3b 30%, #065f46 55%, #047857 80%, #059669 100%);
+      padding: clamp(3.75rem, 7vw, 5.5rem) 0 clamp(2.75rem, 5vw, 3.5rem);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255, 255, 255, .10), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .06), transparent 40%),
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: auto, auto, 48px 48px, 48px 48px;
+      pointer-events: none;
+      opacity: .9;
+      mask-image: radial-gradient(ellipse at 60% 30%, black 22%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 60% 30%, black 22%, transparent 70%);
+    }
+
+    .case-hero * {
+      position: relative;
+    }
+
+    .case-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem .85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .86);
+      font-size: .75rem;
+      font-weight: 650;
+      letter-spacing: .01em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      margin-bottom: 1rem;
+    }
+
+    .case-title {
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.08;
+      font-size: clamp(2rem, 5.2vw, 3rem);
+      margin-bottom: .75rem;
+    }
+
+    .case-subtitle {
+      color: rgba(255, 255, 255, .70);
+      max-width: 70ch;
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .4rem .75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .85);
+      font-size: .75rem;
+      font-weight: 650;
+    }
+
+    .pill i {
+      opacity: .9;
+    }
+
+    .kpi-card {
+      border: 1px solid rgba(16, 185, 129, .20);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, .08), rgba(255, 255, 255, .85));
+      padding: 1rem 1rem .9rem;
+      height: 100%;
+      box-shadow: 0 10px 22px rgba(2, 44, 34, 0.05);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.35);
+      box-shadow: 0 16px 34px rgba(2, 44, 34, 0.12);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+
+    .kpi-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, .12);
+      color: var(--primary-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .kpi-label {
+      font-size: .72rem;
+      color: var(--gray-500);
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .kpi-value {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--gray-900);
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-top: .15rem;
+    }
+
+    .kpi-note {
+      font-size: .78rem;
+      color: var(--gray-500);
+      margin-top: .35rem;
+    }
+
+    .section-title {
+      font-weight: 900;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      margin-bottom: .5rem;
+      line-height: 1.15;
+    }
+
+    .section-lead {
+      color: var(--gray-500);
+      margin: 0;
+      max-width: 75ch;
+    }
+
+    .flow-intro {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(16, 185, 129, 0.10), rgba(14, 165, 233, 0.08)),
+        rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 14px 32px rgba(2, 44, 34, 0.08);
+      padding: clamp(1rem, 2.6vw, 1.45rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flow-intro::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-500), #14b8a6);
+    }
+
+    .flow-intro .section-title {
+      font-size: clamp(1.45rem, 3.5vw, 2.2rem);
+      margin-bottom: .65rem;
+    }
+
+    .flow-intro .section-lead {
+      font-size: clamp(.98rem, 2vw, 1.15rem);
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    .case-panel {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 10px 28px rgba(2, 44, 34, 0.06);
+      overflow: hidden;
+      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    }
+
+    .case-panel:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(2, 44, 34, 0.11);
+      border-color: rgba(16, 185, 129, 0.32);
+    }
+
+    .case-panel-head {
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      background: linear-gradient(180deg, rgba(16, 185, 129, .06), rgba(255, 255, 255, 0));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .case-panel-title {
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .case-panel-body {
+      padding: 1.1rem 1.25rem;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .85rem;
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .75rem;
+      align-items: start;
+    }
+
+    .tl-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, .12);
+      color: var(--primary-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: .1rem;
+      flex: 0 0 auto;
+    }
+
+    .tl-title {
+      font-weight: 850;
+      margin: 0;
+      color: var(--gray-900);
+    }
+
+    .tl-desc {
+      margin: .2rem 0 0;
+      color: var(--gray-600);
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+
+    .evidence-box {
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--surface-1), #fff);
+      min-height: 150px;
+      padding: 1rem;
+      color: var(--gray-600);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .evidence-box small {
+      display: block;
+      font-weight: 650;
+      color: var(--gray-500);
+      margin-top: .35rem;
+    }
+
+    .case-figure {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(2, 44, 34, 0.08);
+    }
+
+    .case-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+      transition: transform 220ms ease;
+    }
+
+    .case-figure-link {
+      display: block;
+      text-decoration: none;
+      cursor: zoom-in;
+    }
+
+    .case-figure-link:hover img {
+      transform: scale(1.02);
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      z-index: 1100;
+    }
+
+    .image-lightbox.is-open {
+      display: flex;
+    }
+
+    .image-lightbox-content {
+      max-width: min(1100px, 95vw);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      background: #fff;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(15, 23, 42, 0.62);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 180ms ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .case-figcaption {
+      padding: .75rem .9rem;
+      font-size: .82rem;
+      color: var(--gray-600);
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.65), #fff);
+    }
+
+    .case-section {
+      scroll-margin-top: 90px;
+    }
+
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991.98px) {
+      .case-hero {
+        padding: clamp(2.8rem, 8vw, 3.8rem) 0 clamp(2rem, 6vw, 2.6rem);
+      }
+
+      .case-title {
+        font-size: clamp(1.65rem, 6.4vw, 2.2rem);
+      }
+
+      .case-subtitle {
+        font-size: .92rem;
+        line-height: 1.58;
+      }
+
+      .kpi-card {
+        padding: .85rem .85rem .78rem;
+      }
+
+      .kpi-value {
+        font-size: 1.2rem;
+      }
+
+      .case-panel-head,
+      .case-panel-body {
+        padding: .92rem 1rem;
+      }
+
+      .ba-grid,
+      .ba-metric-grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-fact {
+        grid-template-columns: 1fr;
+        gap: .25rem;
+      }
+
+      .action-row {
+        grid-template-columns: 1fr;
+        gap: .35rem;
+      }
+
+      .action-row.head {
+        display: none;
+      }
+
+      .cta-strip {
+        padding: 1.1rem 1rem;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .read-progress {
+        height: 2px;
+      }
+
+      .pill-row {
+        gap: .38rem;
+      }
+
+      .pill {
+        font-size: .68rem;
+        padding: .33rem .58rem;
+      }
+
+      .kpi-note {
+        font-size: .72rem;
+      }
+
+      .case-panel-title {
+        font-size: 1rem;
+      }
+
+      .mini-chart-head {
+        font-size: .66rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .case-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .case-floating-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="read-progress" id="readProgress"></div>
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-chart-line me-1"
+          style="color:var(--primary-500)"></i><span style="color:var(--primary-500)">KienDoan</span></a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Giới thiệu</a></li>
+          <li class="nav-item"><a class="nav-link active" href="case-study.html">Dự án thực tế</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Kỹ năng</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên hệ</a></li>
+        </ul>
+        <a href="index.html#case-study" class="btn btn-light btn-sm"><i class="fas fa-arrow-left me-1"></i>Quay lại</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="container">
+      <div class="case-breadcrumb">
+        <a href="index.html#case-study" style="color:inherit;text-decoration:none"><i
+            class="fas fa-arrow-left me-1"></i>Quay lại</a>
+        <span style="opacity:.55">/</span>
+        <span>Dự án thực tế</span>
+      </div>
+      <h1 class="case-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">Phụ tùng xe máy - Tái định vị nội dung & Tối
+        ưu hóa Performance Ads</h1>
+
+      <div class="pill-row">
+        <span class="pill"><i class="fas fa-user-tie"></i>Digital Marketing Specialist</span>
+        <span class="pill"><i class="far fa-calendar-alt"></i>2023 - Nay</span>
+        <span class="pill"><i class="fab fa-meta"></i>Quảng cáo Facebook</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container pb-5" style="max-width:1180px;">
+    <div class="case-layout">
+      <div class="case-content">
+        <!-- SECTION: OVERVIEW & PROBLEM -->
+        <div class="case-panel mt-4 case-section reveal-item" id="overview">
+          <div class="case-panel-head">
+            <h5 class="case-panel-title"><i class="fas fa-compass me-2 text-success"></i>1. Bối cảnh & Mục tiêu</h5>
+            <span class="badge text-bg-light border">The Challenge & Objective</span>
+          </div>
+          <div class="case-panel-body">
+
+            <div class="strategy-summary mb-4">
+              <h6 style="font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;"><i
+                  class="fas fa-exclamation-triangle me-2 text-warning"></i>Thực trạng</h6>
+              <p class="mb-3">Các chiến dịch quảng cáo bán dàn áo đang thâm hụt ngân sách, chi phí ra một tin nhắn ở mức
+                rất cao. (~15.000 VNĐ/tin nhắn).</p>
+
+              <h6 style="font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;"><i
+                  class="fas fa-bullseye me-2 text-primary"></i>Bài toán cần giải quyết</h6>
+              <p>Phải khắc phục tình trạng rớt đơn lớn do khách hàng thiếu niềm tin vào chất lượng nhựa và màu sơn qua
+                hình ảnh mạng, đồng thời chuẩn hóa lại nội dung Fanpage.</p>
+            </div>
+
+            <div class="ba-card before">
+              <div class="ba-card-head">
+                <h6 class="ba-title"><i class="fas fa-circle-exclamation me-1 text-danger"></i>Vấn đề quảng cáo trước
+                  tối ưu</h6>
+
+              </div>
+              <div class="ba-card-body">
+                <ul class="ba-list">
+                  <li><strong>Chi phí quá cao:</strong> Các chiến dịch bán dàn áo thâm hụt ngân sách, CPM/CPA rất đắt.
+                  </li>
+                  <li><strong>Tỷ lệ rớt đơn lớn:</strong> Khách hàng hỏi giá nhưng không chốt do thiếu niềm tin vào chất
+                    lượng nhựa/màu sơn.</li>
+                  <li><strong>Nội dung kém thu hút:</strong> Fanpage thiếu đồng bộ, hình chủ yếu là ảnh tĩnh chụp trên
+                    sàn hoặc copy, không làm nổi bật giá trị sản phẩm.</li>
+                </ul>
+
+                <div class="ba-visual mt-3" style="border: none; border-radius: 12px; margin: 0 -0.5rem;">
+                  <figcaption class="case-figcaption"
+                    style="border-top: none; border-bottom: 1px solid rgba(148, 163, 184, 0.18); background: transparent; padding: 0.5rem 0.5rem 0.75rem;">
+                    <strong>BEFORE:</strong> Chi phí tin nhắn dao động ~14.5k - 16k, chi phí mua hàng rất cao (lên đến
+                    599k).
+                  </figcaption>
+                  <a class="case-figure-link" href="assets/img/before.png" data-lightbox-image="assets/img/before.png"
+                    aria-label="Xem ảnh Before">
+                    <img src="assets/img/before.png"
+                      alt="Ảnh chụp dữ liệu trình quản lý quảng cáo Facebook trước khi tối ưu"
+                      style="border-radius: 8px; border: 1px solid rgba(148, 163, 184, 0.15);">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: EXECUTION -->
+        <div class="case-panel mt-3 case-section reveal-item" id="execution">
+          <div class="case-panel-head">
+            <h5 class="case-panel-title"><i class="fas fa-gears me-2 text-warning"></i>2. Chiến lược & Thực thi</h5>
+            <span class="badge text-bg-light border">Execution</span>
+          </div>
+          <div class="case-panel-body">
+
+            <ul class="timeline mb-4">
+              <li class="tl-item">
+                <div class="tl-dot"><i class="fas fa-pen-nib"></i></div>
+                <div>
+                  <p class="tl-title">Tái cấu trúc Content "Đánh vào thị giác & Niềm tin"</p>
+                  <p class="tl-desc">Quy chuẩn lại toàn bộ hình ảnh Fanpage chuyên nghiệp. Xây dựng tuyến bài viết giáo
+                    dục người dùng: phân biệt nhựa ABS chuẩn/dỏm, cách bảo quản màu sơn, xu hướng màu hot (xi măng,
+                    titan...) để định vị sự uy tín và "gu" thẩm mỹ của cửa hàng.</p>
+                </div>
+              </li>
+              <li class="tl-item">
+                <div class="tl-dot"><i class="fas fa-video"></i></div>
+                <div>
+                  <p class="tl-title">Sản xuất Video "Lột xác" (Before & After)</p>
+                  <p class="tl-desc">Nắm bắt tâm lý khách hàng muốn thấy sản phẩm ốp lên xe thực tế, chuyển hướng sang
+                    video ngắn quay cận cảnh quá trình "lột xác": từ cũ nát đến diện mạo mới. Khai thác góc máy khoe độ
+                    khít ngàm nhựa và độ bóng sơn kích thích thị giác.</p>
+                </div>
+              </li>
+              <li class="tl-item">
+                <div class="tl-dot"><i class="fas fa-chart-pie"></i></div>
+                <div>
+                  <p class="tl-title">Tối ưu Meta Ads thực chiến hàng ngày</p>
+                  <p class="tl-desc">A/B Testing liên tục giữa ảnh tĩnh studio và video lắp ráp. Cương quyết tắt các
+                    chiến dịch đắt đỏ/tệp kém chất lượng; đồng thời mạnh tay vít ngân sách (scale) vào các nhóm quảng
+                    cáo ra tin nhắn rẻ và chốt đơn tốt.</p>
+                </div>
+              </li>
+              <li class="tl-item">
+                <div class="tl-dot"><i class="fas fa-sync"></i></div>
+                <div>
+                  <p class="tl-title">Xử lý tình trạng "Bão hòa Ads"</p>
+                  <p class="tl-desc">Nắm bắt đặc thù tệp khách hàng ngành xe rất nhanh chán nội dung. Liên tục theo dõi
+                    vòng đời quảng cáo, ngay khi video cũ giảm tương tác, lập tức cập nhật và thử nghiệm video xe mới để
+                    duy trì dòng khách ổn định.</p>
+                </div>
+              </li>
+              <li class="tl-item">
+                <div class="tl-dot"><i class="fas fa-headset"></i></div>
+                <div>
+                  <p class="tl-title">Phối hợp đội Sale tối ưu kịch bản chốt đơn</p>
+                  <p class="tl-desc">Phân tích tin nhắn từ chối mua hàng (sợ vỡ nhựa, không biết tự lắp) để hỗ trợ Sale
+                    cập nhật kịch bản: Gửi kèm video hướng dẫn tự lắp tại nhà, nhấn mạnh chính sách đóng gói mút xốp
+                    chống sốc đập tan e ngại của khách.</p>
+                </div>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+
+        <!-- SECTION: RESULTS -->
+        <div class="case-panel mt-3 case-section reveal-item" id="result">
+          <div class="case-panel-head">
+            <h5 class="case-panel-title"><i class="fas fa-chart-line me-2 text-success"></i>3. Kết quả đạt được</h5>
+            <span class="badge text-bg-light border">The Results</span>
+          </div>
+          <div class="case-panel-body">
+
+            <div class="ba-visual mt-3 mb-4" style="border-color: rgba(16, 185, 129, 0.4);">
+              <figcaption class="case-figcaption"
+                style="background: rgba(236, 253, 245, 0.6); border-top: none; border-bottom: 1px solid rgba(16, 185, 129, 0.18); color: #065f46;">
+                <strong>AFTER:</strong> Bảng số liệu thực tế chứng minh hiệu quả tối ưu. Chi phí tin nhắn giảm còn ~3.5k
+                - 8.6k. CPA giảm mạnh xuống trung bình 88k/đơn.
+              </figcaption>
+              <a class="case-figure-link" href="assets/img/after.png" data-lightbox-image="assets/img/after.png"
+                aria-label="Xem ảnh After">
+                <img src="assets/img/after.png" alt="Ảnh chụp dữ liệu trình quản lý quảng cáo Facebook sau tối ưu">
+              </a>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div class="decision-card scale">
+                  <h6><i class="fas fa-thumbs-up me-1 text-success"></i>Tương tác</h6>
+                  <p>Gia tăng mạnh mẽ tỷ lệ tương tác tự nhiên (Organic Engagement) trên Fanpage sau khi tái định vị nội
+                    dung.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="decision-card optimize">
+                  <h6><i class="fas fa-arrow-down me-1 text-primary"></i>Tối ưu chi phí</h6>
+                  <p>Giảm sâu chi phí nhờ A/B Testing & Video Marketing: Giá mỗi tin nhắn giảm từ ~16.000đ xuống còn
+                    <strong>5k - 6k</strong>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="decision-card hold"
+                  style="border-color: rgba(5, 150, 105, 0.28); background: rgba(236, 253, 245, 0.78);">
+                  <h6><i class="fas fa-dollar-sign me-1 text-success"></i>Doanh thu</h6>
+                  <p>Scale thành công chiến dịch hiệu quả, chi phí đơn hàng (CPA) giảm từ ~357.000đ xuống
+                    <strong>88.000đ/đơn</strong>, tối đa hóa ROAS.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-grid mb-4">
+              <div class="result-stat">
+                <p class="stat-label">Chi phí tin nhắn</p>
+                <p class="stat-value">5 - 6k</p>
+                <p class="stat-note">Giảm cực sâu từ mức ~16.000đ ban đầu.</p>
+              </div>
+              <div class="result-stat">
+                <p class="stat-label">Chi phí / Đơn (CPA)</p>
+                <p class="stat-value">88k</p>
+                <p class="stat-note">Giảm đáng kể so với mức ~357.000đ/đơn trước khi tối ưu.</p>
+              </div>
+              <div class="result-stat">
+                <p class="stat-label">ROAS & Doanh thu</p>
+                <p class="stat-value">Scale</p>
+                <p class="stat-note">Tăng trưởng ổn định với các nhóm winning ads.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="case-floating-nav mt-4" aria-label="Mục lục dự án">
+        <p class="case-nav-title">Mục lục</p>
+        <ul class="case-nav-list">
+          <li><a class="case-nav-link" href="#overview"><i class="fas fa-compass"></i>Bối cảnh & Mục tiêu</a></li>
+          <li><a class="case-nav-link" href="#execution"><i class="fas fa-gears"></i>Chiến lược & Thực thi</a></li>
+          <li><a class="case-nav-link" href="#result"><i class="fas fa-chart-line"></i>Kết quả đạt được</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Đóng ảnh"><i class="fas fa-xmark"></i></button>
+    <img class="image-lightbox-content" id="lightboxImage" alt="Ảnh minh hoạ phóng to">
+  </div>
+
+  <footer class="footer mt-0">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 KienDoan. Đã đăng ký bản quyền.</div>
+        <div><a href="index.html#about">Giới thiệu</a><span class="footer-dot">•</span><a href="index.html#contact">Liên
+            hệ</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxTriggers = document.querySelectorAll('[data-lightbox-image]');
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.removeAttribute('src');
+      document.body.style.overflow = '';
+    };
+
+    lightboxTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const imageSrc = trigger.getAttribute('data-lightbox-image');
+        if (!imageSrc) return;
+        lightboxImage.setAttribute('src', imageSrc);
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox?.classList.contains('is-open')) closeLightbox();
+    });
+
+    const progressBar = document.getElementById('readProgress');
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    const revealItems = document.querySelectorAll('.reveal-item');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const navLinks = Array.from(document.querySelectorAll('.case-nav-link'));
+    const sections = Array.from(document.querySelectorAll('.case-section[id]'));
+    const updateActiveSection = () => {
+      let currentId = '';
+      const triggerPoint = window.scrollY + 150;
+      sections.forEach((section) => {
+        if (section.offsetTop <= triggerPoint) currentId = section.id;
+      });
+      navLinks.forEach((link) => {
+        const target = link.getAttribute('href')?.replace('#', '');
+        link.classList.toggle('is-active', !!target && target === currentId);
+      });
+    };
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    updateActiveSection();
+  </script>
+</body>
+
+</html>
