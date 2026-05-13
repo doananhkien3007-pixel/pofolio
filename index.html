@@ -361,6 +361,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             inset: 0;
             z-index: 1;
             border-radius: inherit;
+            border: 0;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
         }
 
         .cs-top {
@@ -777,7 +781,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 1rem;
+            gap: .95rem;
         }
 
         .about-summary {
@@ -792,6 +796,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             display: flex;
             flex-wrap: wrap;
             gap: .55rem;
+        }
+
+        .about-skill-section + .about-skill-section {
+            padding-top: .75rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.86);
         }
 
         .about-mini-title {
@@ -1428,24 +1437,32 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 </article>
 
                 <article class="about-detail-card">
-                    <h4 class="about-mini-title" id="skills"><i class="fas fa-toolbox"></i>Kỹ năng & công cụ</h4>
-                    <div class="about-skill-cloud" aria-label="Kỹ năng và công cụ">
-                        <span class="about-skill-chip"><i class="fab fa-meta"></i>Meta Ads</span>
-                        <span class="about-skill-chip"><i class="fab fa-google"></i>Google Ads</span>
-                        <span class="about-skill-chip"><i class="fab fa-tiktok"></i>TikTok Ads</span>
-                        <span class="about-skill-chip"><i class="fas fa-chart-line"></i>Analytics</span>
-                        <span class="about-skill-chip"><i class="fas fa-pen-nib"></i>Copywriting</span>
-                        <span class="about-skill-chip"><i class="fas fa-laptop-code"></i>Landing Page</span>
-                        <span class="about-skill-chip"><i class="fas fa-wand-magic-sparkles"></i>AI Creative</span>
-                        <span class="about-skill-chip"><i class="fas fa-video"></i>Video Editing</span>
-                        <span class="about-tool-chip"><i class="fas fa-chart-pie"></i>GA4</span>
-                        <span class="about-tool-chip"><i class="fas fa-tags"></i>Tag Manager</span>
-                        <span class="about-tool-chip"><i class="fas fa-chart-bar"></i>Looker</span>
-                        <span class="about-tool-chip"><i class="fas fa-file-excel"></i>Excel</span>
-                        <span class="about-tool-chip"><i class="fas fa-palette"></i>Canva</span>
-                        <span class="about-tool-chip"><i class="fas fa-wand-magic-sparkles"></i>ChatGPT</span>
-                        <span class="about-tool-chip"><i class="fas fa-brain"></i>Gemini</span>
-                        <span class="about-tool-chip"><i class="fas fa-video"></i>CapCut</span>
+                    <div class="about-skill-section" id="skills">
+                        <h4 class="about-mini-title"><i class="fas fa-briefcase"></i>Kỹ năng chuyên môn</h4>
+                        <div class="about-skill-cloud" aria-label="Kỹ năng chuyên môn">
+                            <span class="about-skill-chip"><i class="fab fa-meta"></i>Meta Ads</span>
+                            <span class="about-skill-chip"><i class="fab fa-google"></i>Google Ads</span>
+                            <span class="about-skill-chip"><i class="fab fa-tiktok"></i>TikTok Ads</span>
+                            <span class="about-skill-chip"><i class="fas fa-chart-line"></i>Analytics</span>
+                            <span class="about-skill-chip"><i class="fas fa-pen-nib"></i>Copywriting</span>
+                            <span class="about-skill-chip"><i class="fas fa-laptop-code"></i>Landing Page</span>
+                            <span class="about-skill-chip"><i class="fas fa-wand-magic-sparkles"></i>AI Creative</span>
+                            <span class="about-skill-chip"><i class="fas fa-video"></i>Video Editing</span>
+                        </div>
+                    </div>
+
+                    <div class="about-skill-section">
+                        <h4 class="about-mini-title"><i class="fas fa-toolbox"></i>Kỹ năng & công cụ</h4>
+                        <div class="about-skill-cloud" aria-label="Công cụ sử dụng">
+                            <span class="about-tool-chip"><i class="fas fa-chart-pie"></i>GA4</span>
+                            <span class="about-tool-chip"><i class="fas fa-tags"></i>Tag Manager</span>
+                            <span class="about-tool-chip"><i class="fas fa-chart-bar"></i>Looker</span>
+                            <span class="about-tool-chip"><i class="fas fa-file-excel"></i>Excel</span>
+                            <span class="about-tool-chip"><i class="fas fa-palette"></i>Canva</span>
+                            <span class="about-tool-chip"><i class="fas fa-wand-magic-sparkles"></i>ChatGPT</span>
+                            <span class="about-tool-chip"><i class="fas fa-brain"></i>Gemini</span>
+                            <span class="about-tool-chip"><i class="fas fa-video"></i>CapCut</span>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -1713,7 +1730,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <div class="col-md-6 col-lg-4 project-item" data-category="design">
                     <article class="cs-card">
                         <a href="case-study-ai.html" class="cs-card-link"
-                            aria-label="Xem chi tiết ảnh sản phẩm → Lookbook AI"></a>
+                            aria-label="Xem chi tiết AI Design"></a>
                         <div class="cs-top">
                             <span class="cs-badge">AI Design</span>
                             <div class="cs-icon"
@@ -1736,18 +1753,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 style="flex: 1 1 0; min-width: 0; width: 50%; max-width: 50%; height: auto; min-height: 140px; object-fit: cover;">
                         </div>
                         <h5 class="cs-title"><span class="cs-keyword" style="color: #8b5cf6;"><i
-                                    class="fas fa-robot me-1"></i>AI Design</span> ·
-                            Ảnh sản phẩm → Lookbook AI</h5>
-                        <p class="cs-desc">Sử dụng AI biến ảnh áo phông tĩnh <strong>PRODUCT.jpeg</strong> thành các bộ ảnh người mẫu thời trang thực tế chất lượng cao.</p>
+                                    class="fas fa-robot me-1"></i>AI Design</span></h5>
+                        <p class="cs-desc">Showcase các hình ảnh AI creative tôi đã thực hiện: poster, banner, lookbook,
+                            visual concept và social media visuals.</p>
                         <div class="cs-kpis">
-                            <span class="cs-kpi cost"><i class="fas fa-arrow-down"></i>Chi phí <strong>-90%</strong></span>
-                            <span class="cs-kpi up"><i class="fas fa-bolt"></i>Tốc độ <strong>x10</strong></span>
+                            <span class="cs-kpi up"><i class="fas fa-image"></i>Visual</span>
+                            <span class="cs-kpi neutral"><i class="fas fa-wand-magic-sparkles"></i>AI Creative</span>
                         </div>
                         <div class="cs-tags">
-                            <span class="cs-tag">Generative AI</span>
-                            <span class="cs-tag">Ảnh sản phẩm → Lookbook AI</span>
+                            <span class="cs-tag">Poster</span>
+                            <span class="cs-tag">Banner</span>
+                            <span class="cs-tag">Lookbook</span>
+                            <span class="cs-tag">Visual Concept</span>
+                            <span class="cs-tag">Social Visuals</span>
                         </div>
-                        <a href="case-study-ai.html" class="cs-action" style="color: #8b5cf6;">Xem chi tiết & Nhiều ảnh <i
+                        <a href="case-study-ai.html" class="cs-action" style="color: #8b5cf6;">Xem chi tiết <i
                                 class="fas fa-arrow-right"></i></a>
                     </article>
                 </div>

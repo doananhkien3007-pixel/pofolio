@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Dự Án Tối Ưu Quảng Cáo Facebook | Hồ Sơ KienDoan</title>
+  <title>AI Design | Hồ Sơ KienDoan</title>
   <meta name="description"
-    content="Dự án tối ưu quảng cáo Facebook theo cấu trúc tổng quan, vấn đề, chiến lược, triển khai, tối ưu và kết quả.">
+    content="Showcase AI Design gồm Poster, Banner, Lookbook, Visual Concept và Social Media Visuals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
@@ -805,6 +805,70 @@
       padding: 1.1rem 1.25rem;
     }
 
+    .design-category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .75rem;
+    }
+
+    .design-category-card {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), #fff);
+      padding: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      box-shadow: 0 10px 20px rgba(2, 44, 34, 0.05);
+    }
+
+    .design-category-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, .12);
+      color: var(--primary-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .design-category-title {
+      margin: 0;
+      color: var(--gray-900);
+      font-size: .9rem;
+      font-weight: 850;
+      letter-spacing: -.01em;
+      line-height: 1.25;
+    }
+
+    .poster-ai-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: .65rem;
+    }
+
+    .poster-ai-card {
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(2, 44, 34, 0.06);
+    }
+
+    .poster-ai-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 220ms ease;
+    }
+
+    .poster-ai-card:hover img {
+      transform: scale(1.025);
+    }
+
     .timeline {
       list-style: none;
       padding: 0;
@@ -995,7 +1059,9 @@
 
       .ba-grid,
       .ba-metric-grid,
-      .result-grid {
+      .result-grid,
+      .design-category-grid,
+      .poster-ai-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1057,6 +1123,21 @@
 
       .case-floating-nav {
         display: none;
+      }
+
+      .design-category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .poster-ai-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .design-category-grid,
+      .poster-ai-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1159,11 +1240,15 @@
         <span style="opacity:.55">/</span>
         <span>Dự án thực tế</span>
       </div>
-      <h1 class="case-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">AI Design: Ảnh sản phẩm → Lookbook AI</h1>
+      <h1 class="case-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">AI Design: Poster, Banner, Lookbook & Social Visuals</h1>
 
       <div class="pill-row">
         <span class="pill"><i class="fas fa-robot"></i>AI Specialist</span>
-        <span class="pill"><i class="fas fa-camera"></i>Ảnh sản phẩm → Lookbook AI</span>
+        <span class="pill"><i class="fas fa-image"></i>Poster</span>
+        <span class="pill"><i class="fas fa-panorama"></i>Banner</span>
+        <span class="pill"><i class="fas fa-camera"></i>Lookbook</span>
+        <span class="pill"><i class="fas fa-lightbulb"></i>Visual Concept</span>
+        <span class="pill"><i class="fas fa-share-nodes"></i>Social Media Visuals</span>
         <span class="pill"><i class="fas fa-wand-magic-sparkles"></i>Generative AI</span>
       </div>
     </div>
@@ -1172,6 +1257,78 @@
   <main class="container pb-5" style="max-width:1180px;">
     <div class="case-layout" style="grid-template-columns: 1fr;">
       <div class="case-content">
+        <div class="case-panel mt-4 case-section reveal-item" id="design-scope">
+          <div class="case-panel-head">
+            <h5 class="case-panel-title"><i class="fas fa-layer-group me-2 text-success"></i>Danh mục thiết kế</h5>
+            <span class="badge text-bg-light border">AI Creative</span>
+          </div>
+          <div class="case-panel-body">
+            <div class="design-category-grid" aria-label="Danh mục thiết kế AI">
+              <article class="design-category-card">
+                <span class="design-category-icon"><i class="fas fa-image"></i></span>
+                <h6 class="design-category-title">Poster</h6>
+              </article>
+              <article class="design-category-card">
+                <span class="design-category-icon"><i class="fas fa-panorama"></i></span>
+                <h6 class="design-category-title">Banner</h6>
+              </article>
+              <article class="design-category-card">
+                <span class="design-category-icon"><i class="fas fa-camera"></i></span>
+                <h6 class="design-category-title">Lookbook</h6>
+              </article>
+              <article class="design-category-card">
+                <span class="design-category-icon"><i class="fas fa-lightbulb"></i></span>
+                <h6 class="design-category-title">Visual Concept</h6>
+              </article>
+              <article class="design-category-card">
+                <span class="design-category-icon"><i class="fas fa-share-nodes"></i></span>
+                <h6 class="design-category-title">Social Media Visuals</h6>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-panel mt-4 case-section reveal-item" id="ai-poster">
+          <div class="case-panel-head">
+            <h5 class="case-panel-title"><i class="fas fa-image me-2 text-success"></i>Tạo Poster bằng AI</h5>
+            <span class="badge text-bg-light border">Poster AI</span>
+          </div>
+          <div class="case-panel-body">
+            <div class="poster-ai-grid" aria-label="Bộ poster tạo bằng AI">
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster1.jpeg" data-lightbox-image="assets/img/products/poster/poster1.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster1.jpeg" alt="Poster AI 1">
+                </a>
+              </article>
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster2.jpeg" data-lightbox-image="assets/img/products/poster/poster2.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster2.jpeg" alt="Poster AI 2">
+                </a>
+              </article>
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster3.jpeg" data-lightbox-image="assets/img/products/poster/poster3.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster3.jpeg" alt="Poster AI 3">
+                </a>
+              </article>
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster4.jpeg" data-lightbox-image="assets/img/products/poster/poster4.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster4.jpeg" alt="Poster AI 4">
+                </a>
+              </article>
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster5.jpeg" data-lightbox-image="assets/img/products/poster/poster5.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster5.jpeg" alt="Poster AI 5">
+                </a>
+              </article>
+              <article class="poster-ai-card">
+                <a href="assets/img/products/poster/poster6.jpeg" data-lightbox-image="assets/img/products/poster/poster6.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/poster/poster6.jpeg" alt="Poster AI 6">
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+
         <!-- SECTION: Ảnh sản phẩm → Lookbook AI (một mục) -->
         <div class="case-panel mt-4 case-section reveal-item" id="overview">
           <div class="case-panel-head">
