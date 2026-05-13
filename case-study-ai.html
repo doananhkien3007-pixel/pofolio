@@ -637,30 +637,6 @@
       line-height: 1.65;
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-top: 1.25rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: .4rem .75rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .14);
-      color: rgba(255, 255, 255, .85);
-      font-size: .75rem;
-      font-weight: 650;
-    }
-
-    .pill i {
-      opacity: .9;
-    }
-
     .kpi-card {
       border: 1px solid rgba(16, 185, 129, .20);
       border-radius: 16px;
@@ -805,62 +781,31 @@
       padding: 1.1rem 1.25rem;
     }
 
-    .design-category-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: .75rem;
-    }
-
-    .design-category-card {
-      border: 1px solid rgba(148, 163, 184, 0.24);
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), #fff);
-      padding: .75rem;
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      box-shadow: 0 10px 20px rgba(2, 44, 34, 0.05);
-    }
-
-    .design-category-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: rgba(16, 185, 129, .12);
-      color: var(--primary-700);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-    }
-
-    .design-category-title {
-      margin: 0;
-      color: var(--gray-900);
-      font-size: .9rem;
-      font-weight: 850;
-      letter-spacing: -.01em;
-      line-height: 1.25;
-    }
-
     .poster-ai-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: .65rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
     }
 
     .poster-ai-card {
       border: 1px solid rgba(148, 163, 184, 0.24);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       background: #fff;
+      aspect-ratio: 3 / 4;
       box-shadow: 0 8px 18px rgba(2, 44, 34, 0.06);
+    }
+
+    .poster-ai-card a {
+      width: 100%;
+      height: 100%;
     }
 
     .poster-ai-card img {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
       display: block;
       transition: transform 220ms ease;
     }
@@ -1060,7 +1005,6 @@
       .ba-grid,
       .ba-metric-grid,
       .result-grid,
-      .design-category-grid,
       .poster-ai-grid {
         grid-template-columns: 1fr;
       }
@@ -1094,15 +1038,6 @@
         height: 2px;
       }
 
-      .pill-row {
-        gap: .38rem;
-      }
-
-      .pill {
-        font-size: .68rem;
-        padding: .33rem .58rem;
-      }
-
       .kpi-note {
         font-size: .72rem;
       }
@@ -1125,17 +1060,12 @@
         display: none;
       }
 
-      .design-category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
       .poster-ai-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 575.98px) {
-      .design-category-grid,
       .poster-ai-grid {
         grid-template-columns: 1fr;
       }
@@ -1242,52 +1172,12 @@
       </div>
       <h1 class="case-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem);">AI Design: Poster, Banner, Lookbook & Social Visuals</h1>
 
-      <div class="pill-row">
-        <span class="pill"><i class="fas fa-robot"></i>AI Specialist</span>
-        <span class="pill"><i class="fas fa-image"></i>Poster</span>
-        <span class="pill"><i class="fas fa-panorama"></i>Banner</span>
-        <span class="pill"><i class="fas fa-camera"></i>Lookbook</span>
-        <span class="pill"><i class="fas fa-lightbulb"></i>Visual Concept</span>
-        <span class="pill"><i class="fas fa-share-nodes"></i>Social Media Visuals</span>
-        <span class="pill"><i class="fas fa-wand-magic-sparkles"></i>Generative AI</span>
-      </div>
     </div>
   </header>
 
   <main class="container pb-5" style="max-width:1180px;">
     <div class="case-layout" style="grid-template-columns: 1fr;">
       <div class="case-content">
-        <div class="case-panel mt-4 case-section reveal-item" id="design-scope">
-          <div class="case-panel-head">
-            <h5 class="case-panel-title"><i class="fas fa-layer-group me-2 text-success"></i>Danh mục thiết kế</h5>
-            <span class="badge text-bg-light border">AI Creative</span>
-          </div>
-          <div class="case-panel-body">
-            <div class="design-category-grid" aria-label="Danh mục thiết kế AI">
-              <article class="design-category-card">
-                <span class="design-category-icon"><i class="fas fa-image"></i></span>
-                <h6 class="design-category-title">Poster</h6>
-              </article>
-              <article class="design-category-card">
-                <span class="design-category-icon"><i class="fas fa-panorama"></i></span>
-                <h6 class="design-category-title">Banner</h6>
-              </article>
-              <article class="design-category-card">
-                <span class="design-category-icon"><i class="fas fa-camera"></i></span>
-                <h6 class="design-category-title">Lookbook</h6>
-              </article>
-              <article class="design-category-card">
-                <span class="design-category-icon"><i class="fas fa-lightbulb"></i></span>
-                <h6 class="design-category-title">Visual Concept</h6>
-              </article>
-              <article class="design-category-card">
-                <span class="design-category-icon"><i class="fas fa-share-nodes"></i></span>
-                <h6 class="design-category-title">Social Media Visuals</h6>
-              </article>
-            </div>
-          </div>
-        </div>
-
         <div class="case-panel mt-4 case-section reveal-item" id="ai-poster">
           <div class="case-panel-head">
             <h5 class="case-panel-title"><i class="fas fa-image me-2 text-success"></i>Tạo Poster bằng AI</h5>
