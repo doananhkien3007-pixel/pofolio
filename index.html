@@ -350,6 +350,24 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             animation: card-shine 0.8s ease-out forwards;
         }
 
+        .cs-card.ai-design-card {
+            border-color: rgba(139, 92, 246, 0.22);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(248, 250, 252, 0.78)),
+                radial-gradient(circle at 85% 12%, rgba(139, 92, 246, 0.12), transparent 34%);
+        }
+
+        .cs-card.ai-design-card::before {
+            background:
+                radial-gradient(circle at 20% 12%, rgba(139, 92, 246, .16), transparent 40%),
+                radial-gradient(circle at 84% 36%, rgba(20, 184, 166, .14), transparent 48%);
+        }
+
+        .cs-card.ai-design-card:hover {
+            border-color: rgba(139, 92, 246, 0.38);
+            box-shadow: 0 30px 60px rgba(76, 29, 149, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 20px rgba(139, 92, 246, 0.10);
+        }
+
         @keyframes card-shine {
             100% {
                 left: 200%;
@@ -523,77 +541,30 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(15, 23, 42, 0.2));
         }
 
-        .cs-visual.ai-library {
-            min-height: 168px;
-            padding: 1rem;
-            border: 1px solid rgba(139, 92, 246, 0.18);
+        .cs-visual.ai-poster-thumb {
+            min-height: 178px;
+            display: grid;
+            place-items: center;
+            padding: .75rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
             background:
-                radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.22), transparent 34%),
-                radial-gradient(circle at 86% 18%, rgba(20, 184, 166, 0.18), transparent 34%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.16), transparent 35%),
                 linear-gradient(135deg, rgba(248, 250, 252, 0.96), rgba(245, 243, 255, 0.92));
         }
 
-        .cs-visual.ai-library::before {
-            background:
-                linear-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148, 163, 184, 0.13) 1px, transparent 1px);
-            background-size: 24px 24px;
-            opacity: .34;
+        .cs-visual.ai-poster-thumb::before {
+            opacity: .18;
         }
 
-        .ai-library-grid {
+        .cs-visual.ai-poster-thumb img {
             position: relative;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 1.08fr .92fr;
-            gap: .72rem;
-            height: 100%;
-        }
-
-        .ai-library-tile {
-            position: relative;
-            min-height: 62px;
-            border-radius: 14px;
-            border: 1px solid rgba(148, 163, 184, 0.28);
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 10px 22px rgba(79, 70, 229, 0.08);
-            overflow: hidden;
-        }
-
-        .ai-library-tile.large {
-            grid-row: span 2;
-            background:
-                linear-gradient(145deg, rgba(139, 92, 246, 0.14), rgba(20, 184, 166, 0.10)),
-                rgba(255, 255, 255, 0.86);
-        }
-
-        .ai-library-tile::after {
-            content: "";
-            position: absolute;
-            inset: auto 12px 12px 12px;
-            height: 8px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, rgba(139, 92, 246, .74), rgba(20, 184, 166, .7));
-        }
-
-        .ai-library-tile i {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            color: #8b5cf6;
-            font-size: 1rem;
-        }
-
-        .ai-library-tile span {
-            position: absolute;
-            left: 14px;
-            right: 14px;
-            bottom: 26px;
-            color: #334155;
-            font-size: .72rem;
-            font-weight: 850;
-            letter-spacing: .04em;
-            text-transform: uppercase;
+            width: auto;
+            max-width: 100%;
+            height: 156px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 18px 34px rgba(76, 29, 149, 0.18);
         }
 
         .cs-desc {
@@ -1802,7 +1773,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                 <!-- New AI Design Item -->
                 <div class="col-md-6 col-lg-4 project-item" data-category="design">
-                    <article class="cs-card">
+                    <article class="cs-card ai-design-card">
                         <a href="case-study-ai.html" class="cs-card-link"
                             aria-label="Xem chi tiết AI Design"></a>
                         <div class="cs-top">
@@ -1812,19 +1783,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 <i class="fas fa-wand-magic-sparkles" style="color: #8b5cf6;"></i>
                             </div>
                         </div>
-                        <div class="cs-visual"
-                            style="padding: 0; overflow: hidden; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; justify-content: center; min-height: 140px; background: #1e293b; border: 1px solid rgba(148, 163, 184, 0.1); position: relative;">
-                            <!-- Ảnh sản phẩm → Lookbook AI — một hàng ngang -->
-                            <img src="assets/img/products/PRODUCT.jpeg" alt="Ảnh sản phẩm gốc"
-                                style="flex: 1 1 0; min-width: 0; width: 50%; max-width: 50%; height: auto; min-height: 140px; object-fit: contain; background: white; padding: 10px;">
-                            
-                            <!-- Mũi Tên Biến Đổi -->
-                            <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; background: rgba(139, 92, 246, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; border: 2px solid white;">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-
-                            <img src="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" alt="Lookbook AI"
-                                style="flex: 1 1 0; min-width: 0; width: 50%; max-width: 50%; height: auto; min-height: 140px; object-fit: cover;">
+                        <div class="cs-visual ai-poster-thumb">
+                            <img src="assets/img/products/poster/poster1.jpeg" alt="Poster AI thumbnail">
                         </div>
                         <h5 class="cs-title"><span class="cs-keyword" style="color: #8b5cf6;"><i
                                     class="fas fa-robot me-1"></i>AI Design</span></h5>
