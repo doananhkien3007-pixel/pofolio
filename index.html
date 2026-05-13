@@ -523,6 +523,79 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(15, 23, 42, 0.2));
         }
 
+        .cs-visual.ai-library {
+            min-height: 168px;
+            padding: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.18);
+            background:
+                radial-gradient(circle at 18% 20%, rgba(139, 92, 246, 0.22), transparent 34%),
+                radial-gradient(circle at 86% 18%, rgba(20, 184, 166, 0.18), transparent 34%),
+                linear-gradient(135deg, rgba(248, 250, 252, 0.96), rgba(245, 243, 255, 0.92));
+        }
+
+        .cs-visual.ai-library::before {
+            background:
+                linear-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.13) 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: .34;
+        }
+
+        .ai-library-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            gap: .72rem;
+            height: 100%;
+        }
+
+        .ai-library-tile {
+            position: relative;
+            min-height: 62px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 10px 22px rgba(79, 70, 229, 0.08);
+            overflow: hidden;
+        }
+
+        .ai-library-tile.large {
+            grid-row: span 2;
+            background:
+                linear-gradient(145deg, rgba(139, 92, 246, 0.14), rgba(20, 184, 166, 0.10)),
+                rgba(255, 255, 255, 0.86);
+        }
+
+        .ai-library-tile::after {
+            content: "";
+            position: absolute;
+            inset: auto 12px 12px 12px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(139, 92, 246, .74), rgba(20, 184, 166, .7));
+        }
+
+        .ai-library-tile i {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            color: #8b5cf6;
+            font-size: 1rem;
+        }
+
+        .ai-library-tile span {
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 26px;
+            color: #334155;
+            font-size: .72rem;
+            font-weight: 850;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
         .cs-desc {
             color: rgba(71, 85, 105, 0.9);
             margin: 0 0 1rem;
@@ -586,6 +659,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         .cs-tags {
             display: flex;
+            flex-wrap: wrap;
             gap: 0.4rem;
             margin-top: auto;
             margin-bottom: .9rem;
