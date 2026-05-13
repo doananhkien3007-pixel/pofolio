@@ -489,6 +489,81 @@
       line-height: 1.45;
     }
 
+    .creative-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .85rem;
+      margin: .35rem 0 1.2rem;
+    }
+
+    .creative-gallery .case-figure {
+      height: 100%;
+    }
+
+    .creative-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .creative-gallery .case-figcaption {
+      font-size: .78rem;
+      min-height: 52px;
+    }
+
+    .creative-gallery.no-captions .case-figcaption {
+      display: none;
+    }
+
+    .creative-carousel {
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(2, 44, 34, 0.08);
+      margin-bottom: 1.2rem;
+    }
+
+    .creative-carousel .carousel-item {
+      background: #fff;
+    }
+
+    .creative-carousel img {
+      width: 100%;
+      height: clamp(260px, 46vw, 520px);
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+
+    .creative-carousel .carousel-control-prev,
+    .creative-carousel .carousel-control-next {
+      width: 48px;
+      opacity: 1;
+    }
+
+    .creative-carousel .carousel-control-prev-icon,
+    .creative-carousel .carousel-control-next-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.78);
+      background-size: 48% 48%;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.22);
+    }
+
+    .creative-carousel .carousel-indicators {
+      margin-bottom: .45rem;
+    }
+
+    .creative-carousel .carousel-indicators [data-bs-target] {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: #0f172a;
+    }
+
     .strategy-summary {
       border: 1px solid rgba(16, 185, 129, 0.24);
       border-radius: 18px;
@@ -995,8 +1070,14 @@
 
       .ba-grid,
       .ba-metric-grid,
-      .result-grid {
+      .result-grid,
+      .creative-gallery {
         grid-template-columns: 1fr;
+      }
+
+      .creative-gallery img {
+        height: auto;
+        max-height: 360px;
       }
 
       .project-fact {
@@ -1218,7 +1299,6 @@
               </li>
             </ul>
 
-
           </div>
         </div>
 
@@ -1239,6 +1319,56 @@
                 aria-label="Xem ảnh kết quả TikTok Ads">
                 <img src="assets/img/tiktok.png" alt="Ảnh chụp dữ liệu TikTok Ads thời trang với ROI 15.97">
               </a>
+            </div>
+
+            <h6 style="font-weight: 850; color: #0f172a; margin-bottom: 0.75rem;">
+              <i class="fas fa-images me-2 text-success"></i>Minh họa kết quả & dữ liệu tham chiếu
+            </h6>
+            <div id="tiktokResultCarousel" class="carousel slide creative-carousel" data-bs-ride="false">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#tiktokResultCarousel" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Ảnh 1"></button>
+                <button type="button" data-bs-target="#tiktokResultCarousel" data-bs-slide-to="1"
+                  aria-label="Ảnh 2"></button>
+                <button type="button" data-bs-target="#tiktokResultCarousel" data-bs-slide-to="2"
+                  aria-label="Ảnh 3"></button>
+                <button type="button" data-bs-target="#tiktokResultCarousel" data-bs-slide-to="3"
+                  aria-label="Ảnh 4"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a class="case-figure-link" href="assets/img/tikok1 (1).jpeg"
+                    data-lightbox-image="assets/img/tikok1 (1).jpeg" aria-label="Xem ảnh minh họa TikTok creative 1">
+                    <img src="assets/img/tikok1 (1).jpeg" alt="Minh họa dữ liệu hoặc creative TikTok Ads thời trang 1">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a class="case-figure-link" href="assets/img/tikok1 (2).jpeg"
+                    data-lightbox-image="assets/img/tikok1 (2).jpeg" aria-label="Xem ảnh minh họa TikTok creative 2">
+                    <img src="assets/img/tikok1 (2).jpeg" alt="Minh họa dữ liệu hoặc creative TikTok Ads thời trang 2">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a class="case-figure-link" href="assets/img/tikok1 (3).jpeg"
+                    data-lightbox-image="assets/img/tikok1 (3).jpeg" aria-label="Xem ảnh minh họa TikTok creative 3">
+                    <img src="assets/img/tikok1 (3).jpeg" alt="Minh họa dữ liệu hoặc creative TikTok Ads thời trang 3">
+                  </a>
+                </div>
+                <div class="carousel-item">
+                  <a class="case-figure-link" href="assets/img/tikok1 (4).jpeg"
+                    data-lightbox-image="assets/img/tikok1 (4).jpeg" aria-label="Xem ảnh minh họa TikTok creative 4">
+                    <img src="assets/img/tikok1 (4).jpeg" alt="Minh họa dữ liệu hoặc creative TikTok Ads thời trang 4">
+                  </a>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#tiktokResultCarousel"
+                data-bs-slide="prev" aria-label="Ảnh trước">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#tiktokResultCarousel"
+                data-bs-slide="next" aria-label="Ảnh tiếp theo">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
             </div>
 
             <div class="row g-3 mb-4">
