@@ -1005,7 +1005,8 @@
       .ba-grid,
       .ba-metric-grid,
       .result-grid,
-      .poster-ai-grid {
+      .poster-ai-grid,
+      .lookbook-library-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1060,82 +1061,76 @@
         display: none;
       }
 
-      .poster-ai-grid {
+      .poster-ai-grid,
+      .lookbook-library-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 575.98px) {
-      .poster-ai-grid {
+      .poster-ai-grid,
+      .lookbook-library-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Ảnh sản phẩm → Lookbook AI: cùng một hàng ngang (cuộn ngang khi cần) */
-    .ai-pl-strip {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: stretch;
-      gap: 0.75rem;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: 0.35rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
+    .lookbook-library-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
     }
 
-    .ai-pl-strip > * {
-      flex: 0 0 auto;
-    }
-
-    .ai-pl-product {
-      width: min(200px, 46vw);
+    .lookbook-library-card {
+      position: relative;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 12px;
-      background: #fff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-    }
-
-    .ai-pl-product img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .ai-pl-arrow {
-      width: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-      color: #8b5cf6;
-      font-size: 1.2rem;
-    }
-
-    .ai-pl-thumb {
-      width: min(150px, 42vw);
-    }
-
-    .ai-pl-thumb a {
-      border-radius: 12px;
       overflow: hidden;
-      display: block;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 8px 18px rgba(2, 44, 34, 0.06);
     }
 
-    .ai-pl-thumb img {
+    .lookbook-library-card a {
       width: 100%;
-      height: auto;
-      aspect-ratio: 3/4;
-      object-fit: cover;
+      height: 100%;
+    }
+
+    .lookbook-library-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
       display: block;
+      transition: transform 220ms ease;
+    }
+
+    .lookbook-library-card:hover img {
+      transform: scale(1.018);
+    }
+
+    .lookbook-library-label {
+      position: absolute;
+      left: .65rem;
+      bottom: .65rem;
+      padding: .28rem .55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, .78);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 750;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1200px) {
+      .lookbook-library-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .lookbook-library-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -1226,41 +1221,43 @@
             <span class="badge text-bg-light border">Original → AI</span>
           </div>
           <div class="case-panel-body">
-            <p class="mb-3 text-center">Từ <strong>ảnh sản phẩm</strong> áo thun tĩnh làm đầu vào, AI xử lý để tạo <strong>lookbook</strong> người mẫu với nhiều góc độ, nét mặt, ánh sáng và bối cảnh khác nhau một cách chân thực.</p>
-            <p class="small text-muted text-center mb-3"><em>Bấm vào ảnh để xem kích thước lớn.</em> Trên màn hình nhỏ, vuốt ngang để xem hết hàng.</p>
-
-            <div class="ai-pl-strip" role="region" aria-label="Ảnh sản phẩm và lookbook AI trên một hàng">
-              <div class="ai-pl-product">
-                <a href="assets/img/products/PRODUCT.jpeg" data-lightbox-image="assets/img/products/PRODUCT.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/PRODUCT.jpeg" alt="Ảnh sản phẩm gốc">
+            <div class="lookbook-library-grid" aria-label="Ảnh sản phẩm gốc và lookbook AI">
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/PRODUCT.jpeg" data-lightbox-image="assets/img/products/vay/PRODUCT.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/PRODUCT.jpeg" alt="Ảnh sản phẩm gốc">
                 </a>
-              </div>
-              <div class="ai-pl-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
-              <div class="ai-pl-thumb">
-                <a href="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" data-lightbox-image="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" alt="Lookbook AI 1">
+                <span class="lookbook-library-label">Ảnh gốc</span>
+              </article>
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" data-lightbox-image="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205.jpeg" alt="Lookbook AI 1">
                 </a>
-              </div>
-              <div class="ai-pl-thumb">
-                <a href="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" data-lightbox-image="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" alt="Lookbook AI 2">
+                <span class="lookbook-library-label">Lookbook 1</span>
+              </article>
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" data-lightbox-image="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/High_fashion_editorial_portrait,_capturing_202605111205-2.jpeg" alt="Lookbook AI 2">
                 </a>
-              </div>
-              <div class="ai-pl-thumb">
-                <a href="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" data-lightbox-image="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" alt="Lookbook AI 3">
+                <span class="lookbook-library-label">Lookbook 2</span>
+              </article>
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" data-lightbox-image="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111206.jpeg" alt="Lookbook AI 3">
                 </a>
-              </div>
-              <div class="ai-pl-thumb">
-                <a href="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" data-lightbox-image="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" alt="Lookbook AI 4">
+                <span class="lookbook-library-label">Lookbook 3</span>
+              </article>
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" data-lightbox-image="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207.jpeg" alt="Lookbook AI 4">
                 </a>
-              </div>
-              <div class="ai-pl-thumb">
-                <a href="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" data-lightbox-image="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" class="case-figure-link">
-                  <img src="assets/img/products/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" alt="Lookbook AI 5">
+                <span class="lookbook-library-label">Lookbook 4</span>
+              </article>
+              <article class="lookbook-library-card">
+                <a href="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" data-lightbox-image="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" class="case-figure-link">
+                  <img src="assets/img/products/vay/Người_mẫu_nữ_Việt_Nam_202605111207-2.jpeg" alt="Lookbook AI 5">
                 </a>
-              </div>
+                <span class="lookbook-library-label">Lookbook 5</span>
+              </article>
             </div>
           </div>
         </div>
