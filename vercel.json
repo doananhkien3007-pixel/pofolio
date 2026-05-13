@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/Doan-Anh-Kien-Digital-Marketing-CV.pdf",
+      "destination": "/public/Doan-Anh-Kien-Digital-Marketing-CV.pdf"
+    }
+  ]
+}
