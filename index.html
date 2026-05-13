@@ -655,267 +655,234 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             }
         }
 
-        /* ── About section refresh ─────────────────────────────────── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 1.5rem;
+        /* Compact About */
+        .about-compact {
+            padding: clamp(2.6rem, 5vw, 4rem) 0;
+            background: linear-gradient(180deg, #ffffff, rgba(248, 250, 252, 0.86));
         }
 
-        .about-image-circle {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(20, 184, 166, 0.15);
-            border: 3px solid #ffffff;
-            background: #fff;
+        .about-compact .section-header {
+            margin-bottom: 1.65rem;
+        }
+
+        .about-compact .section-header h2 {
+            font-size: clamp(1.45rem, 3vw, 2rem);
+            margin-bottom: 0;
+        }
+
+        .about-compact-grid {
+            display: grid;
+            grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .about-profile-card,
+        .about-detail-card {
+            border: 1px solid rgba(226, 232, 240, 0.86);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
+            padding: clamp(1.05rem, 2.2vw, 1.35rem);
+        }
+
+        .about-profile-head {
+            display: flex;
+            align-items: center;
+            gap: .95rem;
             margin-bottom: 1rem;
         }
 
-        .about-image-circle img {
+        .about-avatar {
+            width: 74px;
+            height: 74px;
+            border-radius: 18px;
+            overflow: hidden;
+            flex: 0 0 auto;
+            border: 3px solid #fff;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+            background: #f8fafc;
+        }
+
+        .about-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center top;
-            transition: transform 0.5s ease;
-        }
-
-        .about-image-circle:hover img {
-            transform: scale(1.08);
-        }
-
-        .about-card {
-            height: 100%;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 20px;
-            background: linear-gradient(145deg, #ffffff, #f8fafc);
-            box-shadow: 0 8px 30px -10px rgba(15, 23, 42, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
-            padding: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #14b8a6, #2dd4bf);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 0 20px rgba(20, 184, 166, 0.1);
-            border-color: rgba(20, 184, 166, 0.3);
-        }
-
-        .about-card:hover::before {
-            opacity: 1;
-        }
-
-        .about-card-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .about-card-title i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(20, 184, 166, 0.1);
-            color: #0f766e;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            display: block;
         }
 
         .about-name {
-            font-size: 1.75rem;
-            font-weight: 800;
+            margin: 0;
             color: var(--gray-900);
-            margin-bottom: 0.25rem;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
         }
 
         .about-role {
-            display: inline-block;
-            border-radius: 8px;
-            padding: 0.4rem 0.85rem;
-            background: linear-gradient(135deg, #14b8a6, #0f766e);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(20, 184, 166, 0.2);
-        }
-
-        .about-contact-list {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--gray-700);
-            padding: 0.75rem;
-            background: var(--surface-1);
-            border-radius: 12px;
-            border: 1px solid rgba(226, 232, 240, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .about-contact-item:hover {
-            background: #fff;
-            border-color: rgba(20, 184, 166, 0.3);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            transform: translateX(4px);
-        }
-
-        .about-contact-item i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: #fff;
+            margin-top: .35rem;
             color: #0f766e;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-            font-size: 0.9rem;
-        }
-
-        .about-contact-item strong {
-            color: var(--gray-900);
-            font-weight: 750;
-            display: block;
-            font-size: 0.75rem;
+            font-size: .76rem;
+            font-weight: 800;
+            letter-spacing: .04em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.2rem;
         }
 
-        .about-contact-item div {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .about-bio {
-            color: var(--gray-600);
-            line-height: 1.7;
-            font-size: 0.95rem;
-            padding-top: 1.25rem;
-            border-top: 1px dashed var(--gray-200);
+        .about-info-list {
+            display: grid;
+            gap: .62rem;
             margin: 0;
         }
 
-        .skills-column {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .about-info-item {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: .65rem;
+            align-items: start;
+            color: var(--gray-700);
+            font-size: .88rem;
+            line-height: 1.35;
         }
 
-        .skills-groups {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .skills-group {
-            background: #ffffff;
-            border: 1px solid rgba(226, 232, 240, 1);
-            border-radius: 20px;
-            padding: 1.75rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-        }
-
-        .skills-group:hover {
-            border-color: rgba(20, 184, 166, 0.4);
-            box-shadow: 0 12px 30px rgba(20, 184, 166, 0.08);
-            transform: translateY(-3px);
-        }
-
-        .skills-group-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .skills-group-title i {
-            color: #0f766e;
-            background: rgba(20, 184, 166, 0.12);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .skill-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-chip {
+        .about-info-item i {
+            width: 28px;
+            height: 28px;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            border-radius: 10px;
-            background: var(--surface-1);
-            border: 1px solid var(--gray-200);
+            justify-content: center;
+            border-radius: 9px;
+            color: #0f766e;
+            background: rgba(20, 184, 166, 0.1);
+            font-size: .82rem;
+        }
+
+        .about-info-item span {
+            display: block;
+            color: var(--gray-500);
+            font-size: .68rem;
+            font-weight: 850;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            margin-bottom: .12rem;
+        }
+
+        .about-info-item strong {
+            color: var(--gray-900);
+            font-weight: 700;
+        }
+
+        .about-detail-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .about-summary {
+            margin: 0;
+            color: var(--gray-600);
+            font-size: .98rem;
+            line-height: 1.72;
+            max-width: 68ch;
+        }
+
+        .about-skill-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .55rem;
+        }
+
+        .about-mini-title {
+            margin: 0 0 .65rem;
+            color: var(--gray-900);
+            font-size: .84rem;
+            font-weight: 850;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .about-mini-title i {
+            color: #0f766e;
+        }
+
+        .about-skill-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .42rem;
+            border: 1px solid rgba(20, 184, 166, 0.22);
+            border-radius: 999px;
+            background: rgba(240, 253, 250, 0.76);
+            color: #115e59;
+            padding: .42rem .72rem;
+            font-size: .82rem;
+            font-weight: 750;
+            line-height: 1;
+        }
+
+        .about-skill-chip i {
+            font-size: .78rem;
+            color: #0f766e;
+        }
+
+        .about-tool-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .42rem;
+            border: 1px solid rgba(226, 232, 240, 0.95);
+            border-radius: 999px;
+            background: #fff;
             color: var(--gray-700);
-            padding: 0.4rem 0.85rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
+            padding: .4rem .68rem;
+            font-size: .8rem;
+            font-weight: 750;
+            line-height: 1;
+            box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
         }
 
-        .skill-chip:hover {
-            background: rgba(20, 184, 166, 0.05);
+        .about-tool-chip i {
             color: #0f766e;
-            border-color: rgba(20, 184, 166, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .skill-chip i {
-            color: #0f766e;
-            font-size: 0.9rem;
+            font-size: .78rem;
         }
 
         @media (max-width: 1199px) {
-            .about-grid {
+            .about-compact-grid {
                 grid-template-columns: 1fr 1fr;
-                justify-items: center;
             }
         }
 
         @media (max-width: 991px) {
-            .about-grid {
+            .about-compact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-profile-card,
+            .about-detail-card {
+                border-radius: 18px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .about-profile-head {
+                align-items: flex-start;
+            }
+
+            .about-avatar {
+                width: 64px;
+                height: 64px;
+                border-radius: 16px;
+            }
+
+            .about-name {
+                font-size: 1.18rem;
+            }
+
+            .about-summary {
+                font-size: .92rem;
             }
         }
 
@@ -1032,61 +999,291 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             }
         }
 
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 1.25rem;
-            margin-top: 2rem;
+        /* Mobile polish overrides */
+        @media (max-width: 991.98px) {
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            .navbar-custom .navbar-collapse {
+                max-height: calc(100vh - 92px);
+                overflow-y: auto;
+            }
+
+            .navbar-custom .navbar-collapse .d-flex {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr;
+                gap: .5rem !important;
+                margin-top: .65rem;
+            }
+
+            .navbar-custom .navbar-collapse .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-section {
+                min-height: auto;
+                padding: clamp(2.25rem, 7vw, 3.25rem) 0 0 !important;
+            }
+
+            .hero-section .row {
+                align-items: center !important;
+                gap: 1.25rem !important;
+            }
+
+            .hero-section .col-lg-7 {
+                padding-bottom: 0 !important;
+            }
+
+            .hero-section h1 {
+                max-width: 11ch;
+            }
+
+            .hero-avatar-wrap {
+                align-items: center;
+                max-height: 360px;
+                overflow: hidden;
+            }
+
+            .hero-avatar-img {
+                width: min(300px, 82vw);
+                max-height: 360px;
+            }
+
+            .glass-bubble,
+            .data-ecosystem {
+                display: none !important;
+            }
+
+            .about-compact-grid {
+                grid-template-columns: 1fr;
+                max-width: 760px;
+                margin: 0 auto;
+            }
+
+            .case-study-section .row.g-5 {
+                --bs-gutter-y: 1rem;
+            }
         }
 
-        .tool-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            border-radius: 18px;
-            padding: 1.5rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            text-align: center;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 24px rgba(2, 44, 34, 0.04);
-            cursor: pointer;
+        @media (max-width: 767.98px) {
+            .topbar {
+                display: none;
+            }
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .navbar-custom {
+                padding: .45rem 0;
+            }
+
+            .hero-section {
+                text-align: center;
+                padding-top: 2rem !important;
+            }
+
+            .hero-section h1 {
+                max-width: 100%;
+                font-size: clamp(2rem, 13vw, 3.4rem) !important;
+                line-height: .98;
+                margin-bottom: .8rem;
+            }
+
+            .hero-section .hero-label {
+                margin-bottom: .85rem;
+            }
+
+            .hero-section .hero-desc {
+                max-width: 100% !important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-section .hero-actions {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .hero-section .hero-actions .btn {
+                flex: 1 1 150px;
+                justify-content: center;
+                min-width: 0;
+                max-width: 220px;
+            }
+
+            .hero-avatar-wrap {
+                max-height: 300px;
+                margin-top: .25rem;
+            }
+
+            .hero-avatar-img {
+                width: min(260px, 78vw);
+                max-height: 310px;
+            }
+
+            .about-compact {
+                padding: 2rem 0 !important;
+            }
+
+            .about-compact .section-header {
+                margin-bottom: 1rem;
+            }
+
+            .about-profile-card,
+            .about-detail-card {
+                padding: 1rem;
+                border-radius: 18px;
+            }
+
+            .about-profile-head {
+                gap: .75rem;
+                margin-bottom: .85rem;
+            }
+
+            .about-info-list {
+                gap: .55rem;
+            }
+
+            .about-info-item strong {
+                overflow-wrap: anywhere;
+            }
+
+            .about-skill-cloud {
+                gap: .45rem;
+            }
+
+            .about-skill-chip,
+            .about-tool-chip {
+                font-size: .74rem;
+                padding: .36rem .58rem;
+            }
+
+            .filter-wrapper {
+                margin-bottom: 1.35rem;
+                justify-content: stretch;
+            }
+
+            .filter-group {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                border-radius: 18px;
+                gap: .25rem;
+            }
+
+            .filter-group .btn {
+                justify-content: center;
+                padding: .52rem .35rem;
+                font-size: .78rem;
+                white-space: nowrap;
+            }
+
+            .filter-group .btn i {
+                margin-right: .25rem !important;
+            }
+
+            .case-study-section {
+                padding-top: 2.25rem !important;
+                padding-bottom: 2.25rem !important;
+            }
+
+            .case-study-section .section-header {
+                margin-bottom: 1.1rem;
+                text-align: center;
+            }
+
+            .cs-card {
+                padding: 1rem;
+                border-radius: 18px;
+            }
+
+            .cs-top {
+                margin-bottom: .7rem;
+            }
+
+            .cs-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .cs-visual {
+                min-height: 112px;
+                border-radius: 14px;
+                margin-bottom: .75rem;
+            }
+
+            .cs-title {
+                font-size: 1rem !important;
+            }
+
+            .cs-desc {
+                font-size: .84rem;
+                line-height: 1.55;
+                margin-bottom: .75rem;
+            }
+
+            .cs-kpis {
+                gap: .4rem;
+                margin-bottom: .75rem;
+            }
+
+            .cs-kpi {
+                font-size: .7rem;
+                padding: .38rem .52rem;
+            }
+
+            .cs-tags {
+                flex-wrap: wrap;
+            }
         }
 
-        .tool-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(16, 185, 129, 0.4);
-            box-shadow: 0 14px 28px rgba(16, 185, 129, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            background: rgba(255, 255, 255, 1);
+        @media (max-width: 420px) {
+            .navbar-custom .navbar-collapse .d-flex,
+            .filter-group {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(1.8rem, 12vw, 2.75rem) !important;
+            }
+
+            .hero-section .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section .hero-actions .btn {
+                max-width: none;
+                width: 100%;
+            }
+
+            .about-profile-head {
+                align-items: flex-start;
+            }
+
+            .about-role {
+                font-size: .68rem;
+                line-height: 1.35;
+            }
+
+            .about-info-item {
+                grid-template-columns: 24px 1fr;
+                gap: .55rem;
+                font-size: .8rem;
+            }
+
+            .about-info-item i {
+                width: 24px;
+                height: 24px;
+                font-size: .72rem;
+            }
         }
 
-        .tool-icon {
-            font-size: 2.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            background: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), inset 0 2px 4px rgba(255, 255, 255, 0.8);
-            transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tool-card:hover .tool-icon {
-            transform: scale(1.1) rotate(-4deg);
-        }
-
-        .tool-name {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--gray-800);
-            margin: 0;
-            letter-spacing: -0.01em;
-        }
     </style>
 </head>
 
@@ -1196,145 +1393,62 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
     </section>
 
-    <section class="py-5" id="about">
+    <section class="about-compact" id="about">
         <div class="container">
             <div class="section-header text-center">
                 <span class="section-label"><i class="fas fa-user"></i> About Me</span>
-                <h2>Thông tin cá nhân & kỹ năng chuyên môn</h2>
+                <h2>Thông tin cá nhân</h2>
             </div>
-            <div class="about-grid">
-                <article class="about-card">
-                    <h3 class="about-card-title"><i class="fas fa-address-card"></i>About Me</h3>
-
-                    <div class="about-image-circle">
-                        <img src="assets/img/kien.jpg" alt="Đoàn Anh Kiên" loading="lazy">
+            <div class="about-compact-grid">
+                <article class="about-profile-card">
+                    <div class="about-profile-head">
+                        <div class="about-avatar">
+                            <img src="assets/img/kien.jpg" alt="Đoàn Anh Kiên" loading="lazy">
+                        </div>
+                        <div>
+                            <h3 class="about-name">Đoàn Anh Kiên</h3>
+                            <div class="about-role">Digital Marketing / Performance Marketing</div>
+                        </div>
                     </div>
 
-                    <div class="about-name">Đoàn Anh Kiên</div>
-                    <div class="about-role">Digital Marketing Specialist</div>
-
-                    <div class="about-contact-list">
-                        <div class="about-contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div><strong>Số điện thoại:</strong> 0766662094</div>
-                        </div>
-                        <div class="about-contact-item">
+                    <div class="about-info-list">
+                        <div class="about-info-item">
                             <i class="fas fa-envelope"></i>
-                            <div><strong>Email:</strong> doananhkien5@gmail.com</div>
+                            <div><span>Email</span><strong>doananhkien5@gmail.com</strong></div>
                         </div>
-                        <div class="about-contact-item">
+                        <div class="about-info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><span>Phone</span><strong>0766662094</strong></div>
+                        </div>
+                        <div class="about-info-item">
                             <i class="fas fa-graduation-cap"></i>
-                            <div><strong>Học vấn:</strong> UEF – Đại học Kinh tế Tài chính TP.HCM</div>
+                            <div><span>Education</span><strong>UEF - Đại học Kinh tế Tài chính TP.HCM</strong></div>
                         </div>
                     </div>
-
-                    <p class="about-bio">
-                        Tôi tập trung vào quảng cáo dựa trên dữ liệu, tối ưu hiệu suất chiến dịch, đo lường chuyển đổi
-                        và cải thiện funnel để tạo ra tăng trưởng bền vững.
-                    </p>
                 </article>
 
-                <div class="skills-column">
-                    <div class="skills-groups">
-                        <section class="skills-group">
-                            <h4 class="skills-group-title"><i class="fas fa-briefcase"></i> Kỹ Năng Chuyên Môn</h4>
-                            <div class="skill-chips">
-                                <span class="skill-chip"><i class="fas fa-clipboard-list"></i>Lập kế hoạch
-                                    Marketing</span>
-                                <span class="skill-chip"><i class="fas fa-chart-line"></i>Chạy và tối ưu quảng
-                                    cáo</span>
-                                <span class="skill-chip"><i class="fas fa-chart-pie"></i>Phân tích dữ liệu ads</span>
-                                <span class="skill-chip"><i class="fas fa-pen-nib"></i>Copywriting</span>
-                                <span class="skill-chip"><i class="fas fa-robot"></i>Sản xuất hình ảnh và video bằng
-                                    AI</span>
-                                <span class="skill-chip"><i class="fas fa-video"></i>Chỉnh sửa và dựng video</span>
-                                <span class="skill-chip"><i class="fas fa-laptop-code"></i>Thiết kế Website và Landing
-                                    Page cơ bản</span>
-                            </div>
-                        </section>
-
-                        <section class="skills-group" id="skills">
-                            <h4 class="skills-group-title"><i class="fas fa-toolbox"></i> Hệ Sinh Thái Công Cụ</h4>
-                            <div class="tool-grid"
-                                style="grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); margin-top: 1rem; gap: 0.85rem;">
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #DB4437; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fab fa-google"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Google Ads</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #0668E1; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fab fa-meta"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Meta Ads</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #000000; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fab fa-tiktok"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">TikTok Ads</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #F4B400; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-chart-pie"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">GA4</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #4285F4; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-tags"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Tag Manager</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #4285F4; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-chart-bar"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Looker</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #107C41; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-file-excel"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Excel</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #000000; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-video"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">CapCut</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #00C4CC; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-palette"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Canva</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #10a37f; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-wand-magic-sparkles"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">ChatGPT</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #1a73e8; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-brain"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">Gemini</p>
-                                </div>
-                                <div class="tool-card" style="padding: 1rem 0.5rem; gap: 0.5rem; border-radius: 14px;">
-                                    <div class="tool-icon"
-                                        style="color: #db2777; width: 44px; height: 44px; font-size: 1.5rem;"><i
-                                            class="fas fa-laptop-code"></i></div>
-                                    <p class="tool-name" style="font-size: 0.75rem;">LadiPage</p>
-                                </div>
-                            </div>
-                        </section>
+                <article class="about-detail-card">
+                    <h4 class="about-mini-title" id="skills"><i class="fas fa-toolbox"></i>Kỹ năng & công cụ</h4>
+                    <div class="about-skill-cloud" aria-label="Kỹ năng và công cụ">
+                        <span class="about-skill-chip"><i class="fab fa-meta"></i>Meta Ads</span>
+                        <span class="about-skill-chip"><i class="fab fa-google"></i>Google Ads</span>
+                        <span class="about-skill-chip"><i class="fab fa-tiktok"></i>TikTok Ads</span>
+                        <span class="about-skill-chip"><i class="fas fa-chart-line"></i>Analytics</span>
+                        <span class="about-skill-chip"><i class="fas fa-pen-nib"></i>Copywriting</span>
+                        <span class="about-skill-chip"><i class="fas fa-laptop-code"></i>Landing Page</span>
+                        <span class="about-skill-chip"><i class="fas fa-wand-magic-sparkles"></i>AI Creative</span>
+                        <span class="about-skill-chip"><i class="fas fa-video"></i>Video Editing</span>
+                        <span class="about-tool-chip"><i class="fas fa-chart-pie"></i>GA4</span>
+                        <span class="about-tool-chip"><i class="fas fa-tags"></i>Tag Manager</span>
+                        <span class="about-tool-chip"><i class="fas fa-chart-bar"></i>Looker</span>
+                        <span class="about-tool-chip"><i class="fas fa-file-excel"></i>Excel</span>
+                        <span class="about-tool-chip"><i class="fas fa-palette"></i>Canva</span>
+                        <span class="about-tool-chip"><i class="fas fa-wand-magic-sparkles"></i>ChatGPT</span>
+                        <span class="about-tool-chip"><i class="fas fa-brain"></i>Gemini</span>
+                        <span class="about-tool-chip"><i class="fas fa-video"></i>CapCut</span>
                     </div>
-                </div>
+                </article>
             </div>
-
         </div>
     </section>
 
