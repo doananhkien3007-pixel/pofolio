@@ -1632,6 +1632,124 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 padding: .68rem !important;
             }
         }
+
+        .about-detail-card {
+            padding: .95rem 1rem !important;
+            gap: .7rem !important;
+            border-color: rgba(203, 213, 225, 0.72) !important;
+            background: rgba(255, 255, 255, 0.96) !important;
+        }
+
+        .about-detail-card .about-summary {
+            color: #475569;
+            font-size: .84rem;
+            line-height: 1.58;
+            border: 0;
+            border-left: 3px solid rgba(16, 185, 129, 0.34);
+            border-radius: 0;
+            background: transparent;
+            padding: .1rem 0 .1rem .75rem;
+        }
+
+        .about-detail-card .about-skill-layout {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: .58rem !important;
+            padding-top: .65rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.92);
+        }
+
+        .about-detail-card .about-skill-section {
+            display: grid !important;
+            grid-template-columns: 154px minmax(0, 1fr) !important;
+            gap: .65rem !important;
+            align-items: start !important;
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .about-detail-card .about-skill-section+.about-skill-section {
+            padding-top: .58rem !important;
+            border-top: 1px solid rgba(226, 232, 240, 0.82) !important;
+        }
+
+        .about-detail-card .about-mini-title {
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            color: #0f172a;
+            font-size: .74rem;
+            font-weight: 900;
+            letter-spacing: .045em;
+            line-height: 1.25 !important;
+            margin: .18rem 0 0 !important;
+            text-transform: uppercase;
+        }
+
+        .about-detail-card .about-mini-title i {
+            width: 21px;
+            height: 21px;
+            border-radius: 7px;
+            background: rgba(16, 185, 129, 0.11);
+            color: #059669;
+            font-size: .68rem;
+        }
+
+        .about-detail-card .about-skill-cloud {
+            display: flex !important;
+            flex-wrap: wrap;
+            gap: .35rem !important;
+        }
+
+        .about-detail-card .about-skill-chip,
+        .about-detail-card .about-tool-chip {
+            width: auto !important;
+            min-height: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start !important;
+            gap: .3rem;
+            padding: .28rem .48rem;
+            border-radius: 999px;
+            font-size: .68rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: 0;
+            white-space: nowrap;
+            box-shadow: none;
+        }
+
+        .about-detail-card .about-skill-chip {
+            border-color: rgba(20, 184, 166, 0.25);
+            background: rgba(240, 253, 250, 0.72);
+            color: #0f766e;
+        }
+
+        .about-detail-card .about-tool-chip {
+            border-color: rgba(203, 213, 225, 0.88);
+            background: rgba(248, 250, 252, 0.76);
+            color: #334155;
+        }
+
+        .about-detail-card .about-skill-chip i,
+        .about-detail-card .about-tool-chip i {
+            color: #10b981;
+            font-size: .66rem;
+        }
+
+        @media (max-width: 767px) {
+            .about-detail-card .about-skill-section {
+                grid-template-columns: 1fr !important;
+                gap: .42rem !important;
+            }
+
+            .about-detail-card .about-mini-title {
+                margin: 0 !important;
+            }
+        }
     </style>
 </head>
 
@@ -1777,10 +1895,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                 <article class="about-detail-card">
                     <p class="about-summary">
-                        Em đã tham gia nhiều dự án thực tế trên Meta Ads, TikTok Ads, có kinh nghiệm theo dõi các chỉ số
-                        như chi phí khách hàng tiềm năng, chi phí mỗi đơn hàng, chi phí mỗi tin nhắn, tỷ lệ chuyển đổi
-                        và hiệu quả doanh thu. Điểm mạnh của tôi là tư duy dữ liệu, khả năng thử nghiệm nội dung quảng
-                        cáo, tối ưu chiến dịch và phối hợp với bán hàng để cải thiện chất lượng khách hàng.
+                        Mong muốn phát triển trong lĩnh vực Digital Marketing/Performance Marketing, vận dụng kinh
+                        nghiệm Meta Ads, TikTok Ads và tư duy dữ liệu để tối ưu chi phí quảng cáo, nâng cao chất lượng
+                        khách hàng tiềm năng, cải thiện tỷ lệ chuyển đổi và góp phần tăng trưởng doanh thu cho công ty.
                     </p>
 
                     <div class="about-skill-layout">
@@ -1793,7 +1910,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 <span class="about-skill-chip"><i class="fas fa-chart-line"></i>Analytics</span>
                                 <span class="about-skill-chip"><i class="fas fa-pen-nib"></i>Copywriting</span>
                                 <span class="about-skill-chip"><i class="fas fa-laptop-code"></i>Landing Page</span>
-                                <span class="about-skill-chip"><i class="fas fa-wand-magic-sparkles"></i>AI Creative</span>
+                                <span class="about-skill-chip"><i class="fas fa-wand-magic-sparkles"></i>AI
+                                    Creative</span>
                                 <span class="about-skill-chip"><i class="fas fa-video"></i>Video Editing</span>
                             </div>
                         </div>
