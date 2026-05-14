@@ -706,158 +706,203 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         /* Compact About */
         .about-compact {
-            padding: clamp(2.6rem, 5vw, 4rem) 0;
-            background: linear-gradient(180deg, #ffffff, rgba(248, 250, 252, 0.86));
+            padding: clamp(2rem, 4vw, 3.2rem) 0;
+            background:
+                linear-gradient(180deg, #ffffff 0%, rgba(248, 250, 252, 0.9) 100%);
         }
 
         .about-compact .section-header {
-            margin-bottom: 1.65rem;
+            margin-bottom: clamp(1rem, 2vw, 1.45rem);
         }
 
         .about-compact .section-header h2 {
-            font-size: clamp(1.45rem, 3vw, 2rem);
+            font-size: clamp(1.55rem, 3vw, 2.2rem);
             margin-bottom: 0;
         }
 
         .about-compact-grid {
             display: grid;
-            grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
-            gap: 1rem;
-            align-items: stretch;
+            grid-template-columns: minmax(360px, 0.92fr) minmax(0, 1.08fr);
+            gap: clamp(.85rem, 1.5vw, 1.1rem);
+            align-items: start;
         }
 
         .about-profile-card,
         .about-detail-card {
-            border: 1px solid rgba(226, 232, 240, 0.86);
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.94);
-            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.06);
-            padding: clamp(1.05rem, 2.2vw, 1.35rem);
+            border: 1px solid rgba(203, 213, 225, 0.82);
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 22px 54px rgba(15, 23, 42, 0.07);
+            padding: clamp(1rem, 1.8vw, 1.25rem);
+            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+            align-self: start;
+            height: fit-content;
+            min-height: 0;
+        }
+
+        .about-profile-card:hover,
+        .about-detail-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(20, 184, 166, 0.28);
+            box-shadow: 0 28px 64px rgba(15, 23, 42, 0.1);
+        }
+
+        .about-profile-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .about-profile-head {
-            display: flex;
+            display: grid;
+            grid-template-columns: clamp(136px, 28vw, 168px) minmax(0, 1fr);
             align-items: center;
-            gap: .95rem;
-            margin-bottom: 1rem;
+            gap: clamp(.9rem, 2vw, 1.25rem);
+            margin-bottom: clamp(.9rem, 1.8vw, 1.2rem);
         }
 
         .about-avatar {
-            width: 74px;
-            height: 74px;
-            border-radius: 18px;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 26px;
             overflow: hidden;
-            flex: 0 0 auto;
             border: 3px solid #fff;
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-            background: #f8fafc;
+            box-shadow: 0 20px 44px rgba(15, 23, 42, 0.14);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .about-avatar img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center top;
+            object-fit: contain;
+            object-position: center center;
             display: block;
+        }
+
+        .about-identity {
+            min-width: 0;
         }
 
         .about-name {
             margin: 0;
             color: var(--gray-900);
-            font-size: 1.35rem;
+            font-size: clamp(1.55rem, 3.1vw, 2.15rem);
             font-weight: 900;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
         }
 
         .about-role {
-            margin-top: .35rem;
+            margin-top: .55rem;
             color: #0f766e;
-            font-size: .76rem;
+            font-size: clamp(.78rem, 1.5vw, .96rem);
             font-weight: 800;
-            letter-spacing: .04em;
+            letter-spacing: .035em;
+            line-height: 1.35;
             text-transform: uppercase;
         }
 
         .about-info-list {
             display: grid;
-            gap: .62rem;
+            gap: .55rem;
             margin: 0;
         }
 
         .about-info-item {
             display: grid;
-            grid-template-columns: 28px 1fr;
-            gap: .65rem;
-            align-items: start;
+            grid-template-columns: 42px minmax(0, 1fr);
+            gap: .85rem;
+            align-items: center;
             color: var(--gray-700);
-            font-size: .88rem;
-            line-height: 1.35;
+            font-size: .95rem;
+            line-height: 1.38;
+            border: 1px solid rgba(226, 232, 240, 0.82);
+            border-radius: 16px;
+            background: rgba(248, 250, 252, 0.58);
+            padding: .58rem .68rem;
+            transition: transform .18s ease, border-color .18s ease, background .18s ease;
+        }
+
+        .about-info-item:hover {
+            transform: translateX(4px);
+            border-color: rgba(20, 184, 166, 0.32);
+            background: rgba(240, 253, 250, 0.72);
         }
 
         .about-info-item i {
-            width: 28px;
-            height: 28px;
+            width: 42px;
+            height: 42px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 9px;
-            color: #0f766e;
-            background: rgba(20, 184, 166, 0.1);
-            font-size: .82rem;
+            border-radius: 14px;
+            color: #10b981;
+            background: rgba(20, 184, 166, 0.12);
+            font-size: 1rem;
         }
 
         .about-info-item span {
             display: block;
             color: var(--gray-500);
-            font-size: .68rem;
+            font-size: .72rem;
             font-weight: 850;
             text-transform: uppercase;
             letter-spacing: .07em;
-            margin-bottom: .12rem;
+            margin-bottom: .18rem;
         }
 
         .about-info-item strong {
             color: var(--gray-900);
-            font-weight: 700;
+            font-weight: 800;
+            overflow-wrap: anywhere;
         }
 
         .about-detail-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: .95rem;
+            display: grid;
+            align-content: start;
+            gap: .7rem;
         }
 
         .about-summary {
             margin: 0;
-            color: var(--gray-600);
-            font-size: .98rem;
-            line-height: 1.72;
-            max-width: 68ch;
+            color: #475569;
+            font-size: .9rem;
+            line-height: 1.62;
+            max-width: none;
+            border: 1px solid rgba(226, 232, 240, 0.86);
+            border-radius: 18px;
+            background: rgba(248, 250, 252, 0.62);
+            padding: .72rem .85rem;
         }
 
         .about-skill-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: .55rem;
+            gap: .5rem;
         }
 
-        .about-skill-section + .about-skill-section {
-            padding-top: .75rem;
-            border-top: 1px solid rgba(226, 232, 240, 0.86);
+        .about-skill-section {
+            margin: 0;
+        }
+
+        .about-skill-section+.about-skill-section {
+            padding-top: .85rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.9);
         }
 
         .about-mini-title {
-            margin: 0 0 .65rem;
+            margin: 0 0 .6rem;
             color: var(--gray-900);
-            font-size: .84rem;
+            font-size: .82rem;
             font-weight: 850;
             letter-spacing: .04em;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: .45rem;
+            gap: .5rem;
         }
 
         .about-mini-title i {
@@ -872,15 +917,23 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             border-radius: 999px;
             background: rgba(240, 253, 250, 0.76);
             color: #115e59;
-            padding: .42rem .72rem;
-            font-size: .82rem;
+            padding: .42rem .68rem;
+            font-size: .78rem;
             font-weight: 750;
             line-height: 1;
+            transition: transform .18s ease, border-color .18s ease, background .18s ease;
         }
 
         .about-skill-chip i {
             font-size: .78rem;
             color: #0f766e;
+        }
+
+        .about-skill-chip:hover,
+        .about-tool-chip:hover {
+            transform: translateY(-2px);
+            border-color: rgba(20, 184, 166, 0.4);
+            background: rgba(240, 253, 250, 0.95);
         }
 
         .about-tool-chip {
@@ -891,11 +944,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             border-radius: 999px;
             background: #fff;
             color: var(--gray-700);
-            padding: .4rem .68rem;
-            font-size: .8rem;
+            padding: .4rem .64rem;
+            font-size: .76rem;
             font-weight: 750;
             line-height: 1;
             box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+            transition: transform .18s ease, border-color .18s ease, background .18s ease;
         }
 
         .about-tool-chip i {
@@ -905,7 +959,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         @media (max-width: 1199px) {
             .about-compact-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: minmax(320px, .95fr) minmax(0, 1.05fr);
             }
         }
 
@@ -916,27 +970,43 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
             .about-profile-card,
             .about-detail-card {
-                border-radius: 18px;
+                border-radius: 22px;
+            }
+
+            .about-profile-head {
+                grid-template-columns: 148px minmax(0, 1fr);
             }
         }
 
         @media (max-width: 575px) {
             .about-profile-head {
-                align-items: flex-start;
+                grid-template-columns: 124px minmax(0, 1fr);
+                align-items: center;
+                gap: 1rem;
             }
 
             .about-avatar {
-                width: 64px;
-                height: 64px;
-                border-radius: 16px;
+                border-radius: 20px;
             }
 
             .about-name {
-                font-size: 1.18rem;
+                font-size: clamp(1.25rem, 7vw, 1.55rem);
             }
 
             .about-summary {
-                font-size: .92rem;
+                font-size: .86rem;
+                line-height: 1.58;
+                padding: .82rem .88rem;
+            }
+
+            .about-info-item {
+                grid-template-columns: 38px minmax(0, 1fr);
+                padding: .65rem;
+            }
+
+            .about-info-item i {
+                width: 38px;
+                height: 38px;
             }
         }
 
@@ -1055,6 +1125,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         /* Mobile polish overrides */
         @media (max-width: 991.98px) {
+
             html,
             body {
                 overflow-x: hidden;
@@ -1181,21 +1252,25 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             }
 
             .about-compact {
-                padding: 2rem 0 !important;
+                padding: 1.45rem 0 !important;
             }
 
             .about-compact .section-header {
-                margin-bottom: 1rem;
+                margin-bottom: .75rem;
             }
 
             .about-profile-card,
             .about-detail-card {
-                padding: 1rem;
-                border-radius: 18px;
+                padding: .9rem;
+                border-radius: 22px;
+            }
+
+            .about-detail-card {
+                gap: .55rem;
             }
 
             .about-profile-head {
-                gap: .75rem;
+                gap: .85rem;
                 margin-bottom: .85rem;
             }
 
@@ -1297,6 +1372,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
 
         @media (max-width: 420px) {
+
             .navbar-custom .navbar-collapse .d-flex,
             .filter-group {
                 grid-template-columns: 1fr;
@@ -1317,7 +1393,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             }
 
             .about-profile-head {
-                align-items: flex-start;
+                grid-template-columns: 112px minmax(0, 1fr);
+                align-items: center;
+                gap: .9rem;
             }
 
             .about-role {
@@ -1326,18 +1404,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             }
 
             .about-info-item {
-                grid-template-columns: 24px 1fr;
-                gap: .55rem;
-                font-size: .8rem;
+                grid-template-columns: 36px minmax(0, 1fr);
+                gap: .62rem;
+                font-size: .82rem;
             }
 
             .about-info-item i {
-                width: 24px;
-                height: 24px;
-                font-size: .72rem;
+                width: 36px;
+                height: 36px;
+                font-size: .82rem;
             }
         }
-
     </style>
 </head>
 
@@ -1398,7 +1475,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                     </p>
                     <div class="hero-actions">
-                        <a href="/Doan-Anh-Kien-CV.pdf" class="btn btn-primary btn-lg rounded-pill"
+                        <a href="Doan-Anh-Kien-CV.pdf" class="btn btn-primary btn-lg rounded-pill"
                             download="Doan-Anh-Kien-CV.pdf">
                             <i class="fa-solid fa-cloud-arrow-down me-2"></i>Download CV
                         </a>
@@ -1459,7 +1536,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <div class="about-avatar">
                             <img src="assets/img/kien.jpg" alt="Đoàn Anh Kiên" loading="lazy">
                         </div>
-                        <div>
+                        <div class="about-identity">
                             <h3 class="about-name">Đoàn Anh Kiên</h3>
                             <div class="about-role">Digital Marketing / Performance Marketing</div>
                         </div>
@@ -1482,6 +1559,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 </article>
 
                 <article class="about-detail-card">
+                    <p class="about-summary">
+                        Em đã tham gia nhiều dự án thực tế trên Meta Ads, TikTok Ads, có kinh nghiệm theo dõi các chỉ số
+                        như chi phí khách hàng tiềm năng, chi phí mỗi đơn hàng, chi phí mỗi tin nhắn, tỷ lệ chuyển đổi
+                        và hiệu quả doanh thu. Điểm mạnh của tôi là tư duy dữ liệu, khả năng thử nghiệm nội dung quảng
+                        cáo, tối ưu chiến dịch và phối hợp với bán hàng để cải thiện chất lượng khách hàng.
+                    </p>
+
                     <div class="about-skill-section" id="skills">
                         <h4 class="about-mini-title"><i class="fas fa-briefcase"></i>Kỹ năng chuyên môn</h4>
                         <div class="about-skill-cloud" aria-label="Kỹ năng chuyên môn">
@@ -1497,7 +1581,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     </div>
 
                     <div class="about-skill-section">
-                        <h4 class="about-mini-title"><i class="fas fa-toolbox"></i>Kỹ năng & công cụ</h4>
+                        <h4 class="about-mini-title"><i class="fas fa-toolbox"></i>công cụ</h4>
                         <div class="about-skill-cloud" aria-label="Công cụ sử dụng">
                             <span class="about-tool-chip"><i class="fas fa-chart-pie"></i>GA4</span>
                             <span class="about-tool-chip"><i class="fas fa-tags"></i>Tag Manager</span>
@@ -1719,7 +1803,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <h5 class="cs-title"><span class="cs-keyword" style="color: #059669;"><i
                                     class="fas fa-solar-panel me-1"></i>Điện Mặt Trời</span> ·
                             Marketing Plan</h5>
-                        <p class="cs-desc">Bảng kế hoạch phân bổ ngân sách, timeline, nhóm khách hàng và chiến lược triển
+                        <p class="cs-desc">Bảng kế hoạch phân bổ ngân sách, timeline, nhóm khách hàng và chiến lược
+                            triển
                             khai cho dự án Solar & Automation.</p>
                         <div class="cs-kpis">
                             <span class="cs-kpi neutral"><i class="fas fa-wallet"></i>Ngân sách ~1 Tỷ</span>
@@ -1774,8 +1859,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <!-- New AI Design Item -->
                 <div class="col-md-6 col-lg-4 project-item" data-category="design">
                     <article class="cs-card ai-design-card">
-                        <a href="case-study-ai.html" class="cs-card-link"
-                            aria-label="Xem chi tiết AI Design"></a>
+                        <a href="case-study-ai.html" class="cs-card-link" aria-label="Xem chi tiết AI Design"></a>
                         <div class="cs-top">
                             <span class="cs-badge">AI Design</span>
                             <div class="cs-icon"
