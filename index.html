@@ -1784,6 +1784,37 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 overflow-wrap: anywhere;
             }
         }
+
+        .about-compact {
+            padding-bottom: clamp(.75rem, 1.8vw, 1.25rem) !important;
+        }
+
+        .case-study-section {
+            padding-top: clamp(1rem, 2.2vw, 1.6rem) !important;
+            padding-bottom: clamp(2.4rem, 4.5vw, 3.4rem) !important;
+        }
+
+        .case-study-section .section-header {
+            margin-bottom: .75rem !important;
+        }
+
+        .filter-wrapper {
+            margin-bottom: clamp(1rem, 2vw, 1.35rem) !important;
+        }
+
+        .case-study-section .row.g-5 {
+            --bs-gutter-y: 1.25rem;
+        }
+
+        @media (max-width: 767.98px) {
+            .about-compact {
+                padding-bottom: .7rem !important;
+            }
+
+            .case-study-section {
+                padding-top: .85rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -2292,6 +2323,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <li><a href="mailto:doananhkien5@gmail.com"><i
                                     class="fas fa-envelope"></i>doananhkien5@gmail.com</a>
                         </li>
+                        <li><a href="tel:0766662094"><i class="fas fa-phone-alt"></i>0766662094</a></li>
                     </ul>
                 </div>
             </div>
